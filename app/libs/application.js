@@ -134,23 +134,43 @@ _.extend(Application.prototype, {
   },
 
   prepareFieldsFromAccount: function (action, entity, content) {
-    var account, tmp,
+    var account, tmp, users, statuses,
       custom_fields = [];
 
     account = content ? JSON.parse(content) : null;
-    if (account && account.response && account.response.account) {
-      account = account.response.account;
-    }
-
-    if (!account.custom_fields) {
+    if (!(account && account.response && account.response.account)) {
       return CustomFields.getBaseFields(action, entity);
     }
 
-    tmp = account.custom_fields[this.convertEntityName(entity, 'many')];
-    tmp = CustomFields.convertFromAccountInfo(tmp);
-    _.each(tmp, function (field) {
-      custom_fields.push(field);
-    });
+    account = account.response.account;
+
+    if (account.users) {
+      users = {};
+      _.each(account.users, function (user) {
+        users[user.id] = user.name;
+      });
+    }
+
+    if (account.leads_statuses) {
+      statuses = {};
+      _.each(account.leads_statuses, function (status) {
+        statuses[status.id] = status.name;
+      });
+    }
+
+    console.log('users');
+    console.log(users);
+    console.log('statuses');
+    console.log(statuses);
+    custom_fields = CustomFields.getBaseFields(action, entity, users, statuses);
+
+    if (account.custom_fields) {
+      tmp = account.custom_fields[this.convertEntityName(entity, 'many')];
+      tmp = CustomFields.convertFromAccountInfo(tmp);
+      _.each(tmp, function (field) {
+        custom_fields.push(field);
+      });
+    }
 
     return custom_fields;
   },

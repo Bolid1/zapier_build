@@ -69,7 +69,7 @@ _.extend(CustomFields.prototype, {
     return result;
   },
 
-  getBaseFields: function (action, entity) {
+  getBaseFields: function (action, entity, users, statuses) {
     var
       entity_name = Application.convertEntityName(entity, 'single', true),
       entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
@@ -88,17 +88,18 @@ _.extend(CustomFields.prototype, {
         label: entity_name + ' name'
       },
       {
-        type: 'unicode',
+        type: 'datetime',
         key: 'date_create',
         label: 'Date of creation of this ' + entity_name_lowercase
       },
       {
         type: 'int',
         key: 'responsible_user_id',
-        label: 'Unique identified of a responsible user'
+        label: 'Unique identified of a responsible user',
+        choices: users ? users : undefined
       },
       {
-        type: 'unicode',
+        type: 'datetime',
         key: 'last_modified',
         label: 'Date when ' + entity_name_lowercase + ' was modified'
       }
@@ -117,12 +118,14 @@ _.extend(CustomFields.prototype, {
         {
           type: 'int',
           key: 'created_user_id',
-          label: 'Unique identified of a user which has created this ' + entity_name_lowercase
+          label: 'Unique identified of a user which has created this ' + entity_name_lowercase,
+          choices: users ? users : undefined
         },
         {
           type: 'int',
           key: 'modified_user_id',
-          label: 'Unique identified of a user which has modified this ' + entity_name_lowercase
+          label: 'Unique identified of a user which has modified this ' + entity_name_lowercase,
+          choices: users ? users : undefined
         }
       ]);
 
@@ -161,7 +164,8 @@ _.extend(CustomFields.prototype, {
         result.push({
           type: 'int',
           key: 'old_responsible_user_id',
-          label: 'Unique identified of a previous responsible user'
+          label: 'Unique identified of a previous responsible user',
+          choices: users ? users : undefined
         });
       }
     }
@@ -182,14 +186,15 @@ _.extend(CustomFields.prototype, {
           label: 'ID of the pipeline in which ' + entity_name_lowercase + ' located'
         },
         {
-          type: 'unicode',
+          type: 'int',
           key: 'price',
           label: 'Lead budget'
         },
         {
           type: 'int',
           key: 'status_id',
-          label: 'Unique status identifier'
+          label: 'Unique status identifier',
+          choices: statuses ? statuses : undefined
         }
       ]);
     }
