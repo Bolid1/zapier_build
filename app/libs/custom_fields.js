@@ -16,15 +16,15 @@ _.extend(CustomFields.prototype, {
     },
     4: {
       code: 'select',
-      type: 'unicode'
+      type: 'int'
     },
     5: {
       code: 'multiselect',
-      type: 'unicode'
+      type: 'int'
     },
     6: {
       code: 'date',
-      type: 'unicode'
+      type: 'datetime'
     },
     7: {
       code: 'url',
@@ -36,15 +36,15 @@ _.extend(CustomFields.prototype, {
     },
     9: {
       code: 'textarea',
-      type: 'unicode'
+      type: 'text'
     },
     10: {
       code: 'radiobutton',
-      type: 'unicode'
+      type: 'int'
     },
     11: {
       code: 'streetaddress',
-      type: 'unicode'
+      type: 'text'
     },
     13: {
       code: 'smart_address',
@@ -52,7 +52,7 @@ _.extend(CustomFields.prototype, {
     },
     14: {
       code: 'birthday',
-      type: 'unicode'
+      type: 'datetime'
     }
   },
 
@@ -279,89 +279,59 @@ _.extend(CustomFields.prototype, {
       }
 
       switch (cf_type.code) {
+        case 'radiobutton':
+        case 'select':
+          custom_fields.push({
+            type: cf_type.type,
+            key: cf_key,
+            label: account_custom_field.name,
+            choices: account_custom_field.enums
+          });
+          break;
+
+        case 'multiselect':
+          custom_fields.push({
+            type: cf_type.type,
+            key: cf_key,
+            label: account_custom_field.name,
+            choices: account_custom_field.enums,
+            list: true
+          });
+          break;
+
+        case 'multitext':
+          _.each(account_custom_field.enums, function (enum_name, enum_id) {
+            custom_fields.push({
+              type: cf_type.type,
+              key: [cf_key, enum_id].join('__'),
+              label: [account_custom_field.name, enum_name].join(' '),
+              list: true
+            });
+          });
+          break;
+
+        case 'url':
+        case 'textarea':
+        case 'streetaddress':
         case 'text':
         case 'numeric':
         case 'checkbox':
-        case 'select':
-        case 'multiselect':
         case 'date':
-        case 'url':
-        case 'multitext':
-        case 'textarea':
-        case 'radiobutton':
-        case 'streetaddress':
         case 'birthday':
+          custom_fields.push({
+            type: cf_type.type,
+            key: cf_key,
+            label: account_custom_field.name
+          });
           break;
+
         case 'smart_address':
           _.each(account_custom_field.subtypes, function (subtype) {
             custom_fields.push({
-              type: cf_type,
+              type: cf_type.type,
               key: [cf_key, subtype.name].join('__'),
               label: subtype.title
             });
-          });
-          break;
-      }
-    }, this);
-
-    _.each(account_custom_fields, function (custom_field) {
-      var
-        cf_key = ['custom_fields', custom_field.id].join('__'),
-        cf_code,
-        cf_type;
-
-      if (this.getType(custom_field.type_id)) {
-        cf_type = this.getType(custom_field.type_id, 'type');
-      }
-
-      if (!cf_type) {
-        cf_type = 'unicode';
-      }
-
-      if (this.getType(custom_field.type_id)) {
-        cf_code = this.getType(custom_field.type_id, 'code')
-      }
-
-      if (!custom_field.code) {
-        if (cf_code) {
-          custom_field.code = cf_code;
-        } else {
-          custom_field.code = '';
-        }
-      }
-
-
-
-
-      switch (custom_field.code.toLowerCase()) {
-        case 'SMART_ADDRESS':
-          _.each(custom_field.subtypes, function (subtype) {
-            custom_fields.push({
-              type: cf_type,
-              key: [cf_key, subtype.name].join('__'),
-              label: subtype.title
-            });
-          });
-          break;
-        case 'PHONE':
-        case 'EMAIL':
-        case 'IM':
-          _.each(custom_field.enums, function (enum_name, enum_id) {
-            custom_fields.push({
-              type: cf_type,
-              key: [cf_key, enum_id].join('__'),
-              label: [custom_field.name, enum_name].join(' ')
-            });
-          });
-          break;
-        // case 'WEB':
-        // case 'POSITION':
-        // case 'ADDRESS':
-        default:
-          custom_fields.push({
-            type: cf_type,
-            key: cf_key,
-            label: custom_field.name
           });
           break;
       }
