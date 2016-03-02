@@ -88,9 +88,7 @@ _.extend(Application.prototype, {
       }
     ];
 
-    bundle.request.method = 'POST';
-    bundle.request.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-    bundle.request.data = $.param(result);
+    bundle.request.data = JSON.stringify(result);
 
     return bundle.request;
   },
