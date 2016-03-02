@@ -154,7 +154,8 @@ _.extend(Application.prototype, {
     if (account.leads_statuses) {
       statuses = {};
       _.each(account.leads_statuses, function (status) {
-        statuses[status.id] = status.name;
+        var pipeline = account.pipelines[status.pipeline_id];
+        statuses[status.id] = (pipeline && pipeline.name ? pipeline.name + ': ' : '') + status.name;
       });
     }
 
