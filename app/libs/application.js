@@ -9,18 +9,12 @@ _.extend(Application.prototype, {
       subdomain: bundle.auth_fields.account
     };
 
-    if (!bundle.cleaned_request) {
-      return result;
+    if (bundle.cleaned_request) {
+      if (bundle.cleaned_request[type + '[delete][0][id]']) {
+        result.id = bundle.cleaned_request[type + '[delete][0][id]'];
+        result.url += '?filter[ID][]=' + result.id;
+      }
     }
-
-
-    if (!bundle.cleaned_request[type + '[delete][0][id]']) {
-      return result;
-    }
-
-
-    result.id = bundle.cleaned_request[type + '[delete][0][id]'];
-    result.url += '?filter[ID][]=' + result.id;
 
     return result;
   },
@@ -141,14 +135,15 @@ _.extend(Application.prototype, {
 
   prepareFieldsFromAccount: function (action, entity, content) {
     var account, tmp,
-      custom_fields = CustomFields.getBaseFields(action, entity);
+      custom_fields = [];
 
     account = content ? JSON.parse(content) : null;
     if (account && account.response && account.response.account) {
       account = account.response.account;
     }
+
     if (!account.custom_fields) {
-      return custom_fields;
+      return CustomFields.getBaseFields(action, entity);
     }
 
     tmp = account.custom_fields[this.convertEntityName(entity, 'many')];
