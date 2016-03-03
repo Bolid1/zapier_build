@@ -47,9 +47,6 @@ _.extend(Application.prototype, {
   },
 
   pre_write: function (action, type, bundle) {
-    //bundle.request.method = 'POST';
-    //bundle.request.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-
     var
       api_name = this.convertEntityName(type, 'api_name'),
       data = bundle.action_fields,
