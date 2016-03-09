@@ -62,16 +62,13 @@
           body: "return Application.prepareFieldsFromAccount('action_" + action + "', '" + entity + "', bundle.response.content);"
         });
 
-        action_name = [entity, action, 'pre_write'].join('_');
-        out.push({
-          name: action_name,
-          body: "return Application.pre_write('" + action + "', '" + entity + "', bundle);"
-        });
-
-        action_name = [entity, action, 'post_write'].join('_');
-        out.push({
-          name: action_name,
-          body: "return Application.post_write('" + action + "', '" + entity + "', bundle);"
+        _.each(['pre', 'post'], function (action_prefix) {
+          action_prefix += '_write';
+          action_name = [entity, action, action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+          });
         });
       });
     });
