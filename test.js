@@ -430,4 +430,59 @@ var
       "key": "status_id",
       "label": "Unique status identifier"
     }
+  ],
+  action_lead_add_fields = [
+    {
+      "required": true,
+      "type": "unicode",
+      "key": "name",
+      "label": "Lead name"
+    },
+    {
+      "type": "datetime",
+      "key": "date_create",
+      "label": "Date of creation of this lead"
+    },
+    {
+      "label": "Unique identified of a responsible user",
+      "type": "int",
+      "key": "responsible_user_id",
+      "choices": {
+        "261002": "dfsd"
+      }
+    },
+    {
+      "require": false,
+      "type": "datetime",
+      "key": "last_modified",
+      "label": "Date when lead was modified"
+    },
+    {
+      "type": "int",
+      "key": "price",
+      "label": "Lead budget"
+    },
+    {
+      "require": true,
+      "label": "Unique status identifier",
+      "type": "int",
+      "key": "status_id",
+      "choices": {
+        "142": "Pipeline: Closed - won",
+        "143": "Pipeline: Closed - lost",
+        "10450261": "Pipeline: Initial Contact",
+        "10450267": "Pipeline: Negotiation",
+        "10450264": "Pipeline: Offer made",
+        "10450270": "Pipeline: Contract Negotiation"
+      }
+    },
+    {
+      "require": true,
+      "label": "ID of the pipeline in which lead located",
+      "type": "int",
+      "key": "pipeline_id",
+      "choices": {
+        "112177": "Pipeline"
+      }
+    }
   ];

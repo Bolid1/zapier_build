@@ -1,0 +1,76 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/leads/set/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "allow_redirects": false,
+      "data": "{\"request\":{\"leads\":{\"update\":[{\"id\":40365786,\"last_modified\":\"2016-03-09T15:54:38+00:00\",\"responsible_user_id\":261002,\"name\":\"jojjo\",\"custom_fields\":[]}]}}}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "last_modified": "datetime-2016-03-09T15:54:38+00:00",
+      "id": 40365786,
+      "name": "jojjo",
+      "responsible_user_id": 261002
+    },
+    "action_fields_full": {
+      "last_modified": "datetime-2016-03-09T15:54:38+00:00",
+      "responsible_user_id": 261002,
+      "name": "jojjo",
+      "id": 40365786
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "last_modified": "now",
+      "responsible_user_id": "261002",
+      "name": "jojjo",
+      "id": "40365786"
+    },
+    "response": {
+      "content": "{\"response\":{\"leads\":{\"update\":[{\"id\":40365786,\"last_modified\":1457538451}]},\"server_time\":1457538879}}",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=vd0c1ro3b5b3rg7ie9spk8enh5p9v300904t42uevcamfpegnm30; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Thu, 11-Feb-2021 15:54:39 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sat, 04-Mar-2017 15:54:39 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Tue, 09-Mar-2021 15:54:39 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Wed, 09 Mar 2016 15:54:39 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7753958",
+      "name": "Update Lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "url": "https://testzapier.amocrm.com/leads/detail/40365786",
+    "subdomain": "testzapier",
+    "id": 40365786
+  }
+}

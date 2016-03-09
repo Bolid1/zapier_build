@@ -1,0 +1,67 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/leads/set/",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": "{\"pipeline_id\": 112177, \"price\": 5678, \"name\": \"gfg\", \"status_id\": 10450264}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "pipeline_id": 112177,
+      "price": 5678,
+      "name": "gfg",
+      "status_id": 10450264
+    },
+    "action_fields_full": {
+      "pipeline_id": 112177,
+      "price": 5678,
+      "name": "gfg",
+      "status_id": 10450264
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "pipeline_id": "112177",
+      "price": "5678",
+      "name": "{{7753677__text}}",
+      "status_id": "10450264"
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/leads/set/",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7753677",
+      "name": "Create Lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": {},
+    "url": "https://testzapier.amocrm.com/private/api/v2/json/leads/set/",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+    },
+    "data": "{\"request\":{\"leads\":{\"add\":[{\"pipeline_id\":112177,\"price\":5678,\"name\":\"gfg\",\"status_id\":10450264,\"custom_fields\":[]}]}}}",
+    "method": "POST"
+  }
+}

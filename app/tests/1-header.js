@@ -2,6 +2,7 @@ require("node-import");
 
 _ = require("underscore");
 $ = require("jquery");
+moment = require("moment");
 $.param = require("jquery-param");
 
 var

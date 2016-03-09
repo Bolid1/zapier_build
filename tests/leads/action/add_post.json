@@ -1,0 +1,76 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/leads/set/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "allow_redirects": false,
+      "data": "{\"request\":{\"leads\":{\"add\":[{\"pipeline_id\":112177,\"price\":5678,\"name\":\"gfg\",\"status_id\":10450264,\"custom_fields\":[]}]}}}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "pipeline_id": 112177,
+      "price": 5678,
+      "name": "gfg",
+      "status_id": 10450264
+    },
+    "action_fields_full": {
+      "pipeline_id": 112177,
+      "price": 5678,
+      "name": "gfg",
+      "status_id": 10450264
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "pipeline_id": "112177",
+      "price": "5678",
+      "name": "{{7753677__text}}",
+      "status_id": "10450264"
+    },
+    "response": {
+      "content": "{\"response\":{\"leads\":{\"add\":[{\"id\":40365786,\"request_id\":0}]},\"server_time\":1457538451}}",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=9h7nes24dlhk5vapqqhia6o2ccnj1dq1hs94od9mee3gctfmujs0; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Thu, 11-Feb-2021 15:47:31 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sat, 04-Mar-2017 15:47:31 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Tue, 09-Mar-2021 15:47:31 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Wed, 09 Mar 2016 15:47:31 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7753677",
+      "name": "Create Lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "url": "https://testzapier.amocrm.com/leads/detail/40365786",
+    "subdomain": "testzapier",
+    "id": 40365786
+  }
+}

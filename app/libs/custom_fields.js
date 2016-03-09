@@ -69,7 +69,7 @@ _.extend(CustomFields.prototype, {
     return result;
   },
 
-  getBaseFields: function (action, entity, users, statuses) {
+  getBaseFields: function (action, entity, users, statuses, pipelines) {
     var
       entity_name = Application.convertEntityName(entity, 'single', true),
       entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
@@ -106,7 +106,7 @@ _.extend(CustomFields.prototype, {
         type: 'datetime',
         key: 'last_modified',
         label: 'Date when ' + entity_name_lowercase + ' was modified',
-        require: !is_action_add
+        required: !is_action_add
       }
     ];
 
@@ -115,7 +115,7 @@ _.extend(CustomFields.prototype, {
         type: 'int',
         key: 'id',
         label: 'Unique ' + entity_name_lowercase + ' identifier',
-        require: true
+        required: true
       });
     }
 
@@ -188,11 +188,6 @@ _.extend(CustomFields.prototype, {
       result = result.concat([
         {
           type: 'int',
-          key: 'pipeline_id',
-          label: 'ID of the pipeline in which ' + entity_name_lowercase + ' located'
-        },
-        {
-          type: 'int',
           key: 'price',
           label: 'Lead budget'
         },
@@ -201,9 +196,18 @@ _.extend(CustomFields.prototype, {
           key: 'status_id',
           label: 'Unique status identifier',
           choices: statuses ? statuses : undefined,
-          require: is_action_add
+          required: is_action_add
         }
       ]);
+    }
+
+    if (zap_action === 'hook' || pipelines) {
+      result.push({
+        type: 'int',
+        key: 'pipeline_id',
+        label: 'ID of the pipeline in which ' + entity_name_lowercase + ' located' + (zap_action === 'action' ? ' (for closed statuses)' : ''),
+        choices: pipelines
+      });
     }
 
     return result;
@@ -381,6 +385,18 @@ _.extend(CustomFields.prototype, {
     });
 
     return result;
+  },
+
+  convertDateToTimestamp: function (date) {
+    if (!date) {
+      return 0;
+    }
+
+    if (date.replace(/\D/g, '') == date) {
+      return;
+    }
+
+    return moment(date).format('X');
   }
 });
 

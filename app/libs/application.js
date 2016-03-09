@@ -56,6 +56,12 @@ _.extend(Application.prototype, {
       return bundle.request;
     }
 
+    _.each(['date_create', 'last_modified'], function (key) {
+      if (data[key]) {
+        data[key] = CustomFields.convertDateToTimestamp(data[key]);
+      }
+    });
+
     data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
 
     request_data[api_name] = {};
@@ -130,7 +136,7 @@ _.extend(Application.prototype, {
   },
 
   prepareFieldsFromAccount: function (action, entity, content) {
-    var account, tmp, users, statuses,
+    var account, tmp, users, statuses, pipelines,
       custom_fields = [];
 
     account = content ? JSON.parse(content) : null;
@@ -155,7 +161,14 @@ _.extend(Application.prototype, {
       });
     }
 
-    custom_fields = CustomFields.getBaseFields(action, entity, users, statuses);
+    if (account.pipelines) {
+      pipelines = {};
+      _.each(account.pipelines, function (pipeline) {
+        pipelines[pipeline.id] = pipeline.name;
+      });
+    }
+
+    custom_fields = CustomFields.getBaseFields(action, entity, users, statuses, pipelines);
 
     if (account.custom_fields) {
       tmp = account.custom_fields[this.convertEntityName(entity, 'many')];
