@@ -1,5 +1,5 @@
-var
-  bundle = {
+{
+  "bundle": {
     "cleaned_request": {
       "leads[status][0][last_modified]": "1457110201",
       "leads[status][0][modified_user_id]": "261002",
@@ -47,7 +47,7 @@ var
       }
     }
   },
-  result = {
+  "result": {
     "modified_user_id": "261002",
     "old_status_id": "9931852",
     "status_id": "9931855",
@@ -60,4 +60,5 @@ var
     "id": "40337679",
     "custom_fields": {},
     "name": "Can We Trust People Who Buy Twitter Followers?"
-  };
+  }
+}

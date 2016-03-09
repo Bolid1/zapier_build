@@ -1,0 +1,115 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/contacts/set/",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": "{\"company_name\": \"Some company name\", \"responsible_user_id\": 261002, \"custom_fields\": {\"1520851\": {\"3636271\": [\"5657568\", \"i89567\"], \"3636269\": [\"23528602727\", \"29845793846\"], \"3636277\": [\"phone home\"]}, \"1520849\": \"U02S377ES\", \"1520853\": {\"3636285\": [\"Some mail\"]}}, \"name\": \"gfg\"}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "name": "gfg",
+      "company_name": "Some company name",
+      "custom_fields": {
+        "1520851": {
+          "3636271": [
+            "5657568",
+            "i89567"
+          ],
+          "3636269": [
+            "23528602727",
+            "29845793846"
+          ],
+          "3636277": [
+            "phone home"
+          ]
+        },
+        "1520849": "U02S377ES",
+        "1520853": {
+          "3636285": [
+            "Some mail"
+          ]
+        }
+      },
+      "responsible_user_id": 261002
+    },
+    "action_fields_full": {
+      "custom_fields__1520851__3636271": [
+        "5657568",
+        "i89567"
+      ],
+      "name": "gfg",
+      "custom_fields__1520851__3636277": [
+        "phone home"
+      ],
+      "custom_fields__1520849": "U02S377ES",
+      "company_name": "Some company name",
+      "custom_fields__1520851__3636269": [
+        "23528602727",
+        "29845793846"
+      ],
+      "custom_fields__1520853__3636285": [
+        "Some mail"
+      ],
+      "responsible_user_id": 261002
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "custom_fields__1520851__3636271": [
+        "5657568",
+        "i89567"
+      ],
+      "name": "{{7556965__text}}",
+      "custom_fields__1520851__3636277": [
+        "phone home"
+      ],
+      "custom_fields__1520849": "{{7556965__user_id}}",
+      "company_name": "Some company name",
+      "custom_fields__1520851__3636269": [
+        "{{7556965__service_id}}",
+        "29845793846"
+      ],
+      "custom_fields__1520853__3636285": [
+        "Some mail"
+      ],
+      "responsible_user_id": "261002"
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/contacts/set/",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7556965",
+      "name": "Create Contact",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": {},
+    "url": "https://testzapier.amocrm.com/private/api/v2/json/contacts/set/",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+    },
+    "data": "{\"request\":{\"contacts\":{\"add\":[{\"company_name\":\"Some company name\",\"responsible_user_id\":261002,\"custom_fields\":[{\"id\":\"1520849\",\"values\":[{\"value\":\"U02S377ES\"}]},{\"id\":\"1520851\",\"values\":[{\"value\":\"23528602727\",\"enum\":\"3636269\",\"subtype\":\"3636269\"},{\"value\":\"29845793846\",\"enum\":\"3636269\",\"subtype\":\"3636269\"},{\"value\":\"5657568\",\"enum\":\"3636271\",\"subtype\":\"3636271\"},{\"value\":\"i89567\",\"enum\":\"3636271\",\"subtype\":\"3636271\"},{\"value\":\"phone home\",\"enum\":\"3636277\",\"subtype\":\"3636277\"}]},{\"id\":\"1520853\",\"values\":[{\"value\":\"Some mail\",\"enum\":\"3636285\",\"subtype\":\"3636285\"}]}],\"name\":\"gfg\"}]}}}",
+    "method": "POST"
+  }
+}

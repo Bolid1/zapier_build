@@ -1,5 +1,5 @@
-var
-  bundle = {
+{
+  "bundle": {
     "cleaned_request": {
       "querystring": {},
       "contacts[delete][0][id]": "52379505",
@@ -37,8 +37,9 @@ var
       }
     }
   },
-  result = {
+  "result": {
     "url": "https://test.amocrm.com/contacts/trash/?filter[ID][]=52379505",
     "subdomain": "test",
     "id": "52379505"
-  };
+  }
+}

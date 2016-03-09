@@ -1,0 +1,124 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/contacts/set/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "allow_redirects": false,
+      "data": "{\"request\":{\"contacts\":{\"add\":[{\"company_name\":\"Some company name\",\"responsible_user_id\":261002,\"custom_fields\":[{\"id\":\"1520849\",\"values\":[{\"value\":\"U02S377ES\"}]},{\"id\":\"1520851\",\"values\":[{\"value\":\"23528602727\",\"enum\":\"3636269\",\"subtype\":\"3636269\"},{\"value\":\"29845793846\",\"enum\":\"3636269\",\"subtype\":\"3636269\"},{\"value\":\"5657568\",\"enum\":\"3636271\",\"subtype\":\"3636271\"},{\"value\":\"i89567\",\"enum\":\"3636271\",\"subtype\":\"3636271\"},{\"value\":\"phone home\",\"enum\":\"3636277\",\"subtype\":\"3636277\"}]},{\"id\":\"1520853\",\"values\":[{\"value\":\"Some mail\",\"enum\":\"3636285\",\"subtype\":\"3636285\"}]}],\"name\":\"gfg\"}]}}}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "responsible_user_id": 261002,
+      "name": "gfg",
+      "custom_fields": {
+        "1520851": {
+          "3636271": [
+            "5657568",
+            "i89567"
+          ],
+          "3636269": [
+            "23528602727",
+            "29845793846"
+          ],
+          "3636277": [
+            "phone home"
+          ]
+        },
+        "1520849": "U02S377ES",
+        "1520853": {
+          "3636285": [
+            "Some mail"
+          ]
+        }
+      },
+      "company_name": "Some company name"
+    },
+    "action_fields_full": {
+      "custom_fields__1520851__3636271": [
+        "5657568",
+        "i89567"
+      ],
+      "name": "gfg",
+      "custom_fields__1520851__3636277": [
+        "phone home"
+      ],
+      "custom_fields__1520849": "U02S377ES",
+      "company_name": "Some company name",
+      "custom_fields__1520851__3636269": [
+        "23528602727",
+        "29845793846"
+      ],
+      "custom_fields__1520853__3636285": [
+        "Some mail"
+      ],
+      "responsible_user_id": 261002
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "custom_fields__1520851__3636271": [
+        "5657568",
+        "i89567"
+      ],
+      "name": "{{7556965__text}}",
+      "custom_fields__1520851__3636277": [
+        "phone home"
+      ],
+      "custom_fields__1520849": "{{7556965__user_id}}",
+      "company_name": "Some company name",
+      "custom_fields__1520851__3636269": [
+        "{{7556965__service_id}}",
+        "29845793846"
+      ],
+      "custom_fields__1520853__3636285": [
+        "Some mail"
+      ],
+      "responsible_user_id": "261002"
+    },
+    "response": {
+      "content": "{\"response\":{\"contacts\":{\"add\":[{\"id\":52452792,\"request_id\":0}]},\"server_time\":1457532539}}",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=66o7mh7ge8j6mfuhfndg7p7mp1md9h4jeh7po26fsdj7mho1eq90; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Thu, 11-Feb-2021 14:08:59 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sat, 04-Mar-2017 14:08:59 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Tue, 09-Mar-2021 14:08:59 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Wed, 09 Mar 2016 14:09:00 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7556965",
+      "name": "Create Contact",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "url": "https://testzapier.amocrm.com/contacts/detail/52452792",
+    "subdomain": "testzapier",
+    "id": 52452792
+  }
+}

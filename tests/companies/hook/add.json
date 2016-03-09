@@ -1,5 +1,5 @@
-var
-  bundle = {
+{
+  "bundle": {
     "cleaned_request": {
       "contacts[add][0][responsible_user_id]": "298923",
       "contacts[add][0][id]": "52379505",
@@ -44,7 +44,7 @@ var
       }
     }
   },
-  result = {
+  "result": {
     "modified_user_id": "261002",
     "responsible_user_id": "298923",
     "date_create": "Thu Mar 03 2016 10:48:09 GMT+0000 (UTC)",
@@ -54,4 +54,5 @@ var
     "id": "52379505",
     "custom_fields": {},
     "name": "Some company name"
-  };
+  }
+}

@@ -1,5 +1,5 @@
-var
-  bundle = {
+{
+  "bundle": {
     "cleaned_request": {
       "leads[update][0][name]": "Forbidden phone number error",
       "leads[update][0][modified_user_id]": "471574",
@@ -46,7 +46,7 @@ var
       }
     }
   },
-  result = {
+  "result": {
     "modified_user_id": "471574",
     "responsible_user_id": "654094",
     "status_id": "9931849",
@@ -58,4 +58,5 @@ var
     "id": "40334183",
     "custom_fields": {},
     "name": "Forbidden phone number error"
-  };
+  }
+}
