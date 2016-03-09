@@ -53,7 +53,6 @@ _.extend(Application.prototype, {
       request_data = {};
 
     if (!data) {
-      console.log('Nothing to create');
       return bundle.request;
     }
 
@@ -156,10 +155,6 @@ _.extend(Application.prototype, {
       });
     }
 
-    console.log('users');
-    console.log(users);
-    console.log('statuses');
-    console.log(statuses);
     custom_fields = CustomFields.getBaseFields(action, entity, users, statuses);
 
     if (account.custom_fields) {

@@ -268,8 +268,6 @@ _.extend(CustomFields.prototype, {
 
     _.each(account_custom_fields, function (account_custom_field) {
       if (!(account_custom_field && account_custom_field.type_id)) {
-        console.error('Custom field has no type_id key');
-        console.error(account_custom_field);
         return;
       }
 
@@ -278,8 +276,6 @@ _.extend(CustomFields.prototype, {
         cf_key = ['custom_fields', account_custom_field.id].join('__');
 
       if (!cf_type) {
-        console.error('Undefined cf_type');
-        console.error(account_custom_field);
         return;
       }
 
@@ -355,7 +351,7 @@ _.extend(CustomFields.prototype, {
         _.each(custom_field, function (enum_value, enum_id) {
           values.push({
             value: enum_value,
-            enum: enum_id,
+            'enum': enum_id,
             subtype: enum_id
           });
         });
