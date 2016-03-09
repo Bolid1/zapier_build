@@ -16,18 +16,18 @@
         "USER_LOGIN": "v.vargin@team.amocrm.com",
         "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
       },
-      "data": "{\"id\": 40365786, \"last_modified\": \"2016-03-09T15:54:38+00:00\", \"responsible_user_id\": 261002, \"name\": \"jojjo\"}",
+      "data": "{\"id\": 40365786, \"last_modified\": \"2016-03-09T16:24:28+00:00\", \"responsible_user_id\": 261002, \"name\": \"jojjo\"}",
       "method": "POST"
     },
     "action_fields": {
       "responsible_user_id": 261002,
-      "last_modified": "datetime-2016-03-09T15:54:38+00:00",
+      "last_modified": "datetime-2016-03-09T16:24:28+00:00",
       "id": 40365786,
       "name": "jojjo"
     },
     "action_fields_full": {
       "id": 40365786,
-      "last_modified": "datetime-2016-03-09T15:54:38+00:00",
+      "last_modified": "datetime-2016-03-09T16:24:28+00:00",
       "responsible_user_id": 261002,
       "name": "jojjo"
     },
@@ -61,7 +61,7 @@
       "USER_LOGIN": "v.vargin@team.amocrm.com",
       "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
     },
-    "data": "{\"request\":{\"leads\":{\"update\":[{\"id\":40365786,\"last_modified\":\"2016-03-09T15:54:38+00:00\",\"responsible_user_id\":261002,\"name\":\"jojjo\",\"custom_fields\":[]}]}}}",
+    "data": "{\"request\":{\"leads\":{\"update\":[{\"id\":40365786,\"last_modified\":\"1457540668\",\"responsible_user_id\":261002,\"name\":\"jojjo\",\"custom_fields\":[]}]}}}",
     "method": "POST"
   }
 }
