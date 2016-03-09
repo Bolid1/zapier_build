@@ -85,7 +85,8 @@ _.extend(CustomFields.prototype, {
       {
         type: 'unicode',
         key: 'name',
-        label: entity_name + ' name'
+        label: entity_name + ' name',
+        required: zap_action === 'action' && action === 'add'
       },
       {
         type: 'datetime',
@@ -109,7 +110,8 @@ _.extend(CustomFields.prototype, {
       result.push({
         type: 'int',
         key: 'id',
-        label: 'Unique ' + entity_name_lowercase + ' identifier'
+        label: 'Unique ' + entity_name_lowercase + ' identifier',
+        require: true
       });
     }
 
@@ -349,15 +351,21 @@ _.extend(CustomFields.prototype, {
 
       if (_.isObject(custom_field)) {
         _.each(custom_field, function (enum_value, enum_id) {
-          values.push({
-            value: enum_value,
-            'enum': enum_id,
-            subtype: enum_id
+          if (!_.isArray(enum_value)) {
+            enum_value = [enum_value];
+          }
+
+          _.each(enum_value, function (value) {
+            values.push({
+              value: value,
+              'enum': enum_id,
+              subtype: enum_id
+            });
           });
         });
       } else {
         values.push({
-          value: custom_field
+          value: _.isArray(custom_field) ? custom_field.join(', ') : custom_field
         });
       }
 
