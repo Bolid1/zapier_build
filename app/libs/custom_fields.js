@@ -74,19 +74,22 @@ _.extend(CustomFields.prototype, {
       entity_name = Application.convertEntityName(entity, 'single', true),
       entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
       zap_action,
-      result;
+      result,
+      is_action_add;
 
     action = action.split('_');
     zap_action = action[0];
     action = action[1];
 
     // Set base fields for all
+    is_action_add = zap_action === 'action' && action === 'add';
+
     result = [
       {
         type: 'unicode',
         key: 'name',
         label: entity_name + ' name',
-        required: zap_action === 'action' && action === 'add'
+        required: is_action_add
       },
       {
         type: 'datetime',
@@ -102,11 +105,12 @@ _.extend(CustomFields.prototype, {
       {
         type: 'datetime',
         key: 'last_modified',
-        label: 'Date when ' + entity_name_lowercase + ' was modified'
+        label: 'Date when ' + entity_name_lowercase + ' was modified',
+        require: !is_action_add
       }
     ];
 
-    if (!(zap_action === 'action' && action === 'add')) {
+    if (!is_action_add) {
       result.push({
         type: 'int',
         key: 'id',
@@ -196,7 +200,8 @@ _.extend(CustomFields.prototype, {
           type: 'int',
           key: 'status_id',
           label: 'Unique status identifier',
-          choices: statuses ? statuses : undefined
+          choices: statuses ? statuses : undefined,
+          require: is_action_add
         }
       ]);
     }
