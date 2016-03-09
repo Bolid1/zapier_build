@@ -101,12 +101,6 @@ _.extend(CustomFields.prototype, {
         key: 'responsible_user_id',
         label: 'Unique identified of a responsible user',
         choices: users ? users : undefined
-      },
-      {
-        type: 'datetime',
-        key: 'last_modified',
-        label: 'Date when ' + entity_name_lowercase + ' was modified',
-        required: !is_action_add
       }
     ];
 
@@ -121,6 +115,11 @@ _.extend(CustomFields.prototype, {
 
     if (zap_action === 'hook') {
       result = result.concat([
+        {
+          type: 'datetime',
+          key: 'last_modified',
+          label: 'Date when ' + entity_name_lowercase + ' was modified'
+        },
         {
           type: 'int',
           key: 'created_user_id',

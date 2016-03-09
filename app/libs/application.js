@@ -56,12 +56,13 @@ _.extend(Application.prototype, {
       return bundle.request;
     }
 
-    _.each(['date_create', 'last_modified'], function (key) {
+    _.each(['date_create'], function (key) {
       if (data[key]) {
         data[key] = CustomFields.convertDateToTimestamp(data[key]);
       }
     });
 
+    data.last_modified = moment().format('X');
     data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
 
     request_data[api_name] = {};
