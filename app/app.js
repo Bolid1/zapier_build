@@ -6,6 +6,7 @@ var
   libs_dir = current_dir + '/libs',
   tests_dir = current_dir + '/tests',
   out = [],
+  out_tests = [],
   out_folder = '/../result',
   out_file = out_folder + '/script.js',
   out_file_test = current_dir + '/test.js';
@@ -19,9 +20,9 @@ out.push(ZapBuilder.make());
 file_system.writeFileSync(current_dir + out_file, ['"use strict";'].concat(out).join("\n\n"));
 
 // test
-out = [];
+out_tests = [];
 _.each(file_system.readdirSync(tests_dir), function (lib_name) {
-  out.push(file_system.readFileSync(tests_dir + '/' + lib_name, 'utf8'));
+  out_tests.push(file_system.readFileSync(tests_dir + '/' + lib_name, 'utf8'));
 });
 
-file_system.writeFileSync(out_file_test, out.join("\n\n"));
+file_system.writeFileSync(out_file_test, [out_tests[0]].concat(out, out_tests.slice(1)).join("\n\n"));

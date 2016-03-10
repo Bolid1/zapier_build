@@ -76,6 +76,34 @@
     return mapFunctions(out);
   };
 
+  var getAdditions = function () {
+    var out = [];
+
+    _.each(['task', 'note'], function (entity) {
+      _.each(['add', 'update'], function (action) {
+        var action_name;
+
+        action_name = [entity, action, 'post_custom_action_fields'].join('_');
+
+        out.push({
+          name: action_name,
+          body: "return Application.prepareFieldsFromAccountForAdditions('action_" + action + "', '" + entity + "', bundle.response.content);"
+        });
+
+        _.each(['pre', 'post'], function (action_prefix) {
+          action_prefix += '_write';
+          action_name = [entity, action, action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+          });
+        });
+      });
+    });
+
+    return mapFunctions(out);
+  };
+
   var getSubscribes = function () {
     var out = [];
 
@@ -93,8 +121,11 @@
     var out = [
       'var Zap;',
       'Zap = {',
-      getEntitiesHooks() + ",\n",
-      getSubscribes(),
+      [
+        getSubscribes(),
+        getEntitiesHooks(),
+        getAdditions()
+      ].join(",\n"),
       '};'
     ];
 

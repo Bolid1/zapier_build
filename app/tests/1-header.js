@@ -1,16 +1,8 @@
-require("node-import");
-
-_ = require("underscore");
-$ = require("jquery");
-moment = require("moment");
-$.param = require("jquery-param");
-
 var
+  _ = require("underscore"),
+  $ = require("jquery"),
+  moment = require("moment"),
   bundle,
-  result,
-  script = imports('./../result/script.js', {exec: false});
+  result;
 
-script.text += 'global.Zap = Zap;';
-script.run();
-
-var Zap = global.Zap;
+$.param = require("jquery-param");

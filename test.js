@@ -485,4 +485,42 @@ var
         "112177": "Pipeline"
       }
     }
+  ],
+  action_note_add_fields = [
+    {
+      "type": "datetime",
+      "key": "date_create",
+      "label": "Date of creation of this note"
+    },
+    {
+      "label": "Unique identified of a responsible user",
+      "type": "int",
+      "key": "responsible_user_id",
+      "choices": {
+        "261002": "dfsd"
+      }
+    },
+    {
+      "required": true,
+      "type": "int",
+      "key": "element_id",
+      "label": "Unique identifier of the contact or lead (contact/lead must be indicated in element_type)"
+    },
+    {
+      "required": true,
+      "type": "int",
+      "label": "Type of element to be linked",
+      "key": "element_type",
+      "choices": {
+        "1": "Contact",
+        "3": "Company",
+        "2": "Lead"
+      }
+    },
+    {
+      "required": true,
+      "type": "text",
+      "key": "text",
+      "label": "Text of note"
+    }
   ];

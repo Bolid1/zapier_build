@@ -25,7 +25,6 @@ _.extend(Application.prototype, {
       api_name = this.convertEntityName(type, 'api_name'),
       result = {
         id: 0,
-        url: URLParams.buildUrl(bundle.auth_fields.account, type + '/detail/'),
         subdomain: bundle.auth_fields.account
       };
 
@@ -38,9 +37,12 @@ _.extend(Application.prototype, {
         tmp = tmp.response[api_name];
         if (tmp[action] && tmp[action][0] && tmp[action][0].id) {
           result.id = tmp[action][0].id;
-          result.url += result.id;
         }
       }
+    }
+
+    if (result.id && (type === 'contacts' || type === 'leads' || type === 'companies')) {
+      result.url = URLParams.buildUrl(bundle.auth_fields.account, type + '/detail/' + result.id);
     }
 
     return result;
@@ -56,14 +58,20 @@ _.extend(Application.prototype, {
       return bundle.request;
     }
 
-    _.each(['date_create'], function (key) {
+    _.each(['date_create', 'complete_till'], function (key) {
       if (data[key]) {
         data[key] = CustomFields.convertDateToTimestamp(data[key]);
       }
     });
 
+    if (action === 'add' && api_name === 'notes') {
+      data.note_type = CustomFields.getNoteType('common', 'id');
+    }
+
     data.last_modified = moment().format('X');
-    data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
+    if (data.custom_fields) {
+      data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
+    }
 
     request_data[api_name] = {};
     request_data[api_name][action] = [data];
@@ -107,6 +115,16 @@ _.extend(Application.prototype, {
           many: 'leads',
           single: 'lead',
           api_name: 'leads'
+        },
+        {
+          many: 'tasks',
+          single: 'task',
+          api_name: 'tasks'
+        },
+        {
+          many: 'notes',
+          single: 'note',
+          api_name: 'notes'
         }
       ],
       result = false;
@@ -138,7 +156,7 @@ _.extend(Application.prototype, {
 
   prepareFieldsFromAccount: function (action, entity, content) {
     var account, tmp, users, statuses, pipelines,
-      custom_fields = [];
+      custom_fields;
 
     account = content ? JSON.parse(content) : null;
     if (!(account && account.response && account.response.account)) {
@@ -180,6 +198,34 @@ _.extend(Application.prototype, {
     }
 
     return custom_fields;
+  },
+
+  prepareFieldsFromAccountForAdditions: function (action, entity, content) {
+    var account, users, tmp, types, entity_name;
+
+    account = content ? JSON.parse(content) : null;
+    if (!(account && account.response && account.response.account)) {
+      return CustomFields.getAdditionsFields(action, entity);
+    }
+
+    account = account.response.account;
+    entity_name = this.convertEntityName(entity, 'single', false);
+    tmp = entity_name + '_types';
+    if (entity_name === 'task' && account[tmp]) {
+      types = {};
+      _.each(account[tmp], function (type) {
+        types[type.id] = type.name.toString().trim();
+      });
+    }
+
+    if (account.users) {
+      users = {};
+      _.each(account.users, function (user) {
+        users[user.id] = user.name;
+      });
+    }
+
+    return CustomFields.getAdditionsFields(action, entity, users, types);
   },
 
   convertEntity: function (action, type, content) {

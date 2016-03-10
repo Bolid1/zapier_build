@@ -56,12 +56,135 @@ _.extend(CustomFields.prototype, {
     }
   },
 
+  _note_types: {
+    1: {
+      id: 1,
+      name: "",
+      code: "DEAL_CREATED",
+      editable: "N"
+    },
+    2: {
+      id: 2,
+      name: "",
+      code: "CONTACT_CREATED",
+      editable: "N"
+    },
+    3: {
+      id: 3,
+      name: "",
+      code: "DEAL_STATUS_CHANGED",
+      editable: "N"
+    },
+    4: {
+      id: 4,
+      name: "",
+      code: "COMMON",
+      editable: "Y"
+    },
+    5: {
+      id: 5,
+      name: "",
+      code: "ATTACHEMENT",
+      editable: "N"
+    },
+    6: {
+      id: 6,
+      name: "",
+      code: "CALL",
+      editable: "N"
+    },
+    7: {
+      id: 7,
+      name: "",
+      code: "MAIL_MESSAGE",
+      editable: "N"
+    },
+    8: {
+      id: 8,
+      name: "",
+      code: "MAIL_MESSAGE_ATTACHMENT",
+      editable: "N"
+    },
+    9: {
+      id: 9,
+      name: "",
+      code: "EXTERNAL_ATTACH",
+      editable: "N"
+    },
+    10: {
+      id: 10,
+      name: "",
+      code: "CALL_IN",
+      editable: "N"
+    },
+    11: {
+      id: 11,
+      name: "",
+      code: "CALL_OUT",
+      editable: "N"
+    },
+    12: {
+      id: 12,
+      name: "",
+      code: "COMPANY_CREATED",
+      editable: "N"
+    },
+    13: {
+      id: 13,
+      name: "",
+      code: "TASK_RESULT",
+      editable: "N"
+    },
+    99: {
+      id: 99,
+      name: "",
+      code: "MAX_SYSTEM",
+      editable: "N"
+    },
+    101: {
+      id: 101,
+      name: "Link",
+      code: "DROPBOX",
+      editable: "N"
+    },
+    102: {
+      id: 102,
+      name: "Incoming",
+      code: "SMS_IN",
+      editable: "N"
+    },
+    103: {
+      id: 103,
+      name: "Outgoing",
+      code: "SMS_OUT",
+      editable: "N"
+    }
+  },
+
   getType: function (type_id, prop) {
     var result = this._types;
 
     if (type_id) {
       result = typeof result[type_id] !== 'undefined' ? result[type_id] : null;
       if (prop) {
+        result = typeof result[prop] !== 'undefined' ? result[prop] : null;
+      }
+    }
+
+    return result;
+  },
+
+  getNoteType: function (type_id, prop) {
+    var result = this._note_types;
+
+    if (type_id) {
+      if (_.isNumber(type_id)) {
+        result = typeof result[type_id] !== 'undefined' ? result[type_id] : null;
+      } else {
+        result = _.findWhere(_.values(result), {code: type_id.toString().toUpperCase()});
+      }
+
+      if (result && prop) {
         result = typeof result[prop] !== 'undefined' ? result[prop] : null;
       }
     }
@@ -134,22 +257,23 @@ _.extend(CustomFields.prototype, {
         }
       ]);
 
-      if (entity_name_lowercase !== 'lead') {
-        result = result.concat([
-          {
-            type: 'int',
-            key: 'group_id',
-            label: 'Unique identified of a group'
-          },
-          {
-            type: 'unicode',
-            key: 'tags',
-            label: 'Tag names separated by commas'
-          }
-        ]);
+      if (zap_action === 'hook' && entity_name_lowercase !== 'lead') {
+        result.push({
+          type: 'int',
+          key: 'group_id',
+          label: 'Unique identified of a group'
+        });
       }
 
-      if (entity_name_lowercase === 'contact') {
+      if (zap_action === 'hook' && entity_name_lowercase !== 'lead' || zap_action === 'action') {
+        result.push({
+          type: 'unicode',
+          key: 'tags',
+          label: 'Tag names separated by commas'
+        });
+      }
+
+      if (zap_action === 'hook' && entity_name_lowercase === 'contact') {
         result.push({
           type: 'int',
           key: 'linked_company_id',
@@ -157,7 +281,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (action === 'status' && entity_name_lowercase === 'lead') {
+      if (zap_action === 'hook' && action === 'status') {
         result.push({
           type: 'int',
           key: 'old_status_id',
@@ -165,7 +289,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (action === 'responsible') {
+      if (zap_action === 'hook' && action === 'responsible') {
         result.push({
           type: 'int',
           key: 'old_responsible_user_id',
@@ -207,6 +331,94 @@ _.extend(CustomFields.prototype, {
         label: 'ID of the pipeline in which ' + entity_name_lowercase + ' located' + (zap_action === 'action' ? ' (for closed statuses)' : ''),
         choices: pipelines
       });
+    }
+
+    return result;
+  },
+
+  getAdditionsFields: function (action, entity, users, types) {
+    var
+      entity_name = Application.convertEntityName(entity, 'single', true),
+      entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
+      zap_action,
+      result,
+      is_action_add;
+
+    action = action.split('_');
+    zap_action = action[0];
+    action = action[1];
+
+    // Set base fields for all
+    is_action_add = zap_action === 'action' && action === 'add';
+
+    result = [
+      {
+        type: 'datetime',
+        key: 'date_create',
+        label: 'Date of creation of this ' + entity_name_lowercase
+      },
+      {
+        type: 'int',
+        key: 'responsible_user_id',
+        label: 'Unique identified of a responsible user',
+        choices: users ? users : undefined
+      }
+    ];
+
+    if (!is_action_add) {
+      result.push({
+        type: 'int',
+        key: 'id',
+        label: 'Unique ' + entity_name_lowercase + ' identifier',
+        required: true
+      });
+    }
+
+    if (is_action_add) {
+      result = result.concat([
+        {
+          type: 'int',
+          key: 'element_id',
+          label: 'Unique identifier of the contact or lead (contact/lead must be indicated in element_type)',
+          required: is_action_add
+        },
+        {
+          type: 'int',
+          key: 'element_type',
+          label: 'Type of element to be linked',
+          choices: {
+            1: Application.convertEntityName('contact', 'single', true),
+            2: Application.convertEntityName('lead', 'single', true),
+            3: Application.convertEntityName('company', 'single', true)
+          },
+          required: is_action_add
+        }
+      ]);
+    }
+
+    result.push({
+      type: 'text',
+      key: 'text',
+      label: 'Text of ' + entity_name_lowercase,
+      required: is_action_add || entity_name_lowercase === 'task'
+    });
+
+    if (entity_name_lowercase === 'task') {
+      result = result.concat([
+        {
+          type: 'datetime',
+          key: 'complete_till',
+          label: 'A date by which the task must be completed. If time has value 23:59, then “All day” will be displayed in system interfaces instead of time.',
+          required: is_action_add
+        },
+        {
+          type: 'int',
+          key: entity_name_lowercase + '_type',
+          label: entity_name + ' type',
+          choices: types ? types : undefined,
+          required: is_action_add
+        }
+      ]);
     }
 
     return result;
