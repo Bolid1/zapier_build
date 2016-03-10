@@ -1,0 +1,75 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/notes/set/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "allow_redirects": false,
+      "data": "{\"request\":{\"notes\":{\"update\":[{\"text\":\"Another text\",\"element_id\":52452792,\"element_type\":1,\"id\":81100512,\"last_modified\":\"1457600876\"}]}}}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "text": "Another text",
+      "element_id": 52452792,
+      "element_type": 1,
+      "id": 81100512
+    },
+    "action_fields_full": {
+      "text": "Another text",
+      "element_id": 52452792,
+      "element_type": 1,
+      "id": 81100512
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "text": "Another text",
+      "element_id": "52452792",
+      "element_type": "1",
+      "id": "81100512"
+    },
+    "response": {
+      "content": "{\"response\":{\"notes\":null,\"server_time\":1457600877}}",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=qts544nkfjm40cubm1fn7im1oofnecosckrkurip4nelj3vn2s20; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Fri, 12-Feb-2021 09:07:57 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sun, 05-Mar-2017 09:07:57 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Wed, 10-Mar-2021 09:07:57 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Thu, 10 Mar 2016 09:07:57 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7775440",
+      "name": "Update Note",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "subdomain": "testzapier",
+    "id": 0
+  }
+}

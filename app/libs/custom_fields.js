@@ -362,6 +362,23 @@ _.extend(CustomFields.prototype, {
         key: 'responsible_user_id',
         label: 'Unique identified of a responsible user',
         choices: users ? users : undefined
+      },
+      {
+        type: 'int',
+        key: 'element_id',
+        label: 'Unique identifier of the contact or lead (contact/lead must be indicated in element_type)',
+        required: true
+      },
+      {
+        type: 'int',
+        key: 'element_type',
+        label: 'Type of element to be linked',
+        choices: {
+          1: Application.convertEntityName('contact', 'single', true),
+          2: Application.convertEntityName('lead', 'single', true),
+          3: Application.convertEntityName('company', 'single', true)
+        },
+        required: true
       }
     ];
 
@@ -372,28 +389,6 @@ _.extend(CustomFields.prototype, {
         label: 'Unique ' + entity_name_lowercase + ' identifier',
         required: true
       });
-    }
-
-    if (is_action_add) {
-      result = result.concat([
-        {
-          type: 'int',
-          key: 'element_id',
-          label: 'Unique identifier of the contact or lead (contact/lead must be indicated in element_type)',
-          required: is_action_add
-        },
-        {
-          type: 'int',
-          key: 'element_type',
-          label: 'Type of element to be linked',
-          choices: {
-            1: Application.convertEntityName('contact', 'single', true),
-            2: Application.convertEntityName('lead', 'single', true),
-            3: Application.convertEntityName('company', 'single', true)
-          },
-          required: is_action_add
-        }
-      ]);
     }
 
     result.push({
