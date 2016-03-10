@@ -1,0 +1,70 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "testzapier"
+    },
+    "request": {
+      "files": {},
+      "url": "https://testzapier.amocrm.com/private/api/v2/json/tasks/set/",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": "{\"complete_till\": \"2016-03-10T03:32:48+00:00\", \"text\": \"Another text of task\", \"element_id\": 52452792, \"element_type\": 1, \"id\": 24175340}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "complete_till": "datetime-2016-03-10T03:32:48+00:00",
+      "text": "Another text of task",
+      "element_id": 52452792,
+      "element_type": 1,
+      "id": 24175340
+    },
+    "action_fields_full": {
+      "complete_till": "datetime-2016-03-10T03:32:48+00:00",
+      "text": "Another text of task",
+      "element_id": 52452792,
+      "element_type": 1,
+      "id": 24175340
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "complete_till": "tommorow",
+      "text": "Another text of task",
+      "element_id": "52452792",
+      "element_type": "1",
+      "id": "24175340"
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/tasks/set/",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/7775665",
+      "name": "Update task",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": {},
+    "url": "https://testzapier.amocrm.com/private/api/v2/json/tasks/set/",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+    },
+    "data": "{\"request\":{\"tasks\":{\"update\":[{\"complete_till\":\"1457580768\",\"text\":\"Another text of task\",\"element_id\":52452792,\"element_type\":1,\"id\":24175340,\"last_modified\":\"1457602368\"}]}}}",
+    "method": "POST"
+  }
+}
