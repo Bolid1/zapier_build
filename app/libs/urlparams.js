@@ -32,7 +32,7 @@ _.extend(URLParams.prototype, {
       first_value,
       params = {};
 
-    _.each(query.split('&'), function (pair) {
+    _.each(query.replace(/\+/g, ' ').split('&'), function (pair) {
       pair = pair.split('=');
       pair[0] = decodeURIComponent(pair[0]);
 

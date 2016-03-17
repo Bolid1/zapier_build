@@ -32,17 +32,27 @@
 
       _.each(actions, function (action) {
         action_name = [action, entity, 'post_custom_trigger_fields'].join('_');
-
         out.push({
           name: action_name,
           body: "return Application.prepareFieldsFromAccount('hook_" + action + "', '" + entity + "', bundle.response.content);"
         });
 
         action_name = [action, entity, 'catch_hook'].join('_');
-
         out.push({
           name: action_name,
           body: "return Application.convertEntity('" + action + "', '" + entity + "', bundle.request.content);"
+        });
+
+        action_name = [action, entity, 'pre_poll'].join('_');
+        out.push({
+          name: action_name,
+          body: "return Application.hooksPrePoll('" + action + "', '" + entity + "', bundle);"
+        });
+
+        action_name = [action, entity, 'post_poll'].join('_');
+        out.push({
+          name: action_name,
+          body: "return [Application.convertEntity('" + action + "', '" + entity + "', bundle.response.content)];"
         });
       });
 

@@ -294,6 +294,17 @@ _.extend(Application.prototype, {
     result.custom_fields = CustomFields.convertFromApi(entity.custom_fields);
 
     return result;
+  },
+
+  hooksPrePoll: function (action, entity, bundle) {
+    return {
+      url: bundle.request.url,
+      method: bundle.request.method,
+      auth: bundle.request.auth,
+      headers: bundle.request.headers,
+      params: _.extend(bundle.request.params, {type: 'query'}),
+      data: bundle.request.data
+    };
   }
 });
 
