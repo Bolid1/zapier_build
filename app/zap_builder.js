@@ -56,13 +56,22 @@
         });
       });
 
-
       action_name = ['delete', entity, 'catch_hook'].join('_');
-
-
       out.push({
         name: action_name,
         body: "return Application.delete_catch_hook('" + entity + "', bundle);"
+      });
+
+      action_name = ['delete', entity, 'post_poll'].join('_');
+      out.push({
+        name: action_name,
+        body: "return [Application.delete_catch_hook('" + entity + "', bundle)];"
+      });
+
+      action_name = ['delete', entity, 'pre_poll'].join('_');
+      out.push({
+        name: action_name,
+        body: "return Application.hooksPrePoll('delete', '" + entity + "', bundle);"
       });
 
       _.each(['add', 'update'], function (action) {

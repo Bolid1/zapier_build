@@ -8,8 +8,7 @@ var
   out = [],
   out_tests = [],
   out_folder = '/../result',
-  out_file = out_folder + '/script.js',
-  out_file_test = current_dir + '/test.js';
+  out_file = out_folder + '/script.js';
 
 _.each(file_system.readdirSync(libs_dir), function (lib_name) {
   out.push(file_system.readFileSync(libs_dir + '/' + lib_name, 'utf8'));
@@ -25,4 +24,5 @@ _.each(file_system.readdirSync(tests_dir), function (lib_name) {
   out_tests.push(file_system.readFileSync(tests_dir + '/' + lib_name, 'utf8'));
 });
 
-file_system.writeFileSync(out_file_test, [out_tests[0]].concat(out, out_tests.slice(1)).join("\n\n"));
+out_tests = [out_tests[0]].concat(out, out_tests.slice(1)).join("\n\n");
+eval(out_tests);
