@@ -11,7 +11,7 @@
     return _.map(out, function (map) {
       return [
         '  ' + map.name + ': function (bundle) {',
-        '  ' + (_.isArray(map.body) ? _.map(map.body, function (str) { return '  ' + str; }).join("\n") : '  ' + map.body),
+        (_.isArray(map.body) ? _.map(map.body, function (str) { return '    ' + str; }).join("\n") : '    ' + map.body),
         '  ' + '}'
       ].join("\n");
     }).join(",\n");
@@ -65,7 +65,7 @@
       action_name = ['delete', entity, 'post_poll'].join('_');
       out.push({
         name: action_name,
-        body: "return [Application.delete_catch_hook('" + entity + "', bundle)];"
+        body: "return [Application.deletePostPoll('" + entity + "', bundle)];"
       });
 
       action_name = ['delete', entity, 'pre_poll'].join('_');

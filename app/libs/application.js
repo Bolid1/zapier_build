@@ -7,16 +7,26 @@ _.extend(Application.prototype, {
       id: 0,
       url: URLParams.buildUrl(bundle.auth_fields.account, type + '/trash/'),
       subdomain: bundle.auth_fields.account
-    };
+    }, data;
 
-    if (bundle.cleaned_request) {
-      if (bundle.cleaned_request[type + '[delete][0][id]']) {
-        result.id = bundle.cleaned_request[type + '[delete][0][id]'];
-        result.url += '?filter[ID][]=' + result.id;
+    if (bundle.request.content) {
+      data = URLParams.parse(bundle.request.content);
+      if (data && data[type] && data[type]['delete']) {
+        data = data[type]['delete'];
+        if (data[0] && data[0]['id']) {
+          result.id = data[0]['id'];
+          result.url += '?filter[ID][]=' + result.id;
+        }
       }
     }
 
     return result;
+  },
+
+  deletePostPoll: function (type, bundle) {
+    bundle.request.content = bundle.response.content;
+
+    return this.delete_catch_hook(type, bundle);
   },
 
   post_write: function (action, type, bundle) {
