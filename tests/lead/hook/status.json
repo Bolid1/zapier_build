@@ -18,7 +18,7 @@
     },
     "trigger_fields": {},
     "request": {
-      "content": "leads%5Bstatus%5D%5B0%5D%5Bid%5D=40337679&leads%5Bstatus%5D%5B0%5D%5Bname%5D=Can+We+Trust+People+Who+Buy+Twitter+Followers%3F&leads%5Bstatus%5D%5B0%5D%5Bstatus_id%5D=9931855&leads%5Bstatus%5D%5B0%5D%5Bprice%5D=0&leads%5Bstatus%5D%5B0%5D%5Bresponsible_user_id%5D=504141&leads%5Bstatus%5D%5B0%5D%5Blast_modified%5D=1457110201&leads%5Bstatus%5D%5B0%5D%5Bmodified_user_id%5D=261002&leads%5Bstatus%5D%5B0%5D%5Bcreated_user_id%5D=654094&leads%5Bstatus%5D%5B0%5D%5Bdate_create%5D=1456506337&leads%5Bstatus%5D%5B0%5D%5Bpipeline_id%5D=53218&leads%5Bstatus%5D%5B0%5D%5Baccount_id%5D=9931843&leads%5Bstatus%5D%5B0%5D%5B&account%5Bsubdomain%5D=test",
+      "content": "leads%5Bstatus%5D%5B0%5D%5Bid%5D=40337679&leads%5Bstatus%5D%5B0%5D%5Bname%5D=Can+We+Trust+People+Who+Buy+Twitter+Followers%3F&leads%5Bstatus%5D%5B0%5D%5Bstatus_id%5D=9931855&leads%5Bstatus%5D%5B0%5D%5Bold_status_id%5D=9931852&leads%5Bstatus%5D%5B0%5D%5Bprice%5D=0&leads%5Bstatus%5D%5B0%5D%5Bresponsible_user_id%5D=504141&leads%5Bstatus%5D%5B0%5D%5Blast_modified%5D=1457110201&leads%5Bstatus%5D%5B0%5D%5Bmodified_user_id%5D=261002&leads%5Bstatus%5D%5B0%5D%5Bcreated_user_id%5D=654094&leads%5Bstatus%5D%5B0%5D%5Bdate_create%5D=1456506337&leads%5Bstatus%5D%5B0%5D%5Bpipeline_id%5D=53218&leads%5Bstatus%5D%5B0%5D%5Baccount_id%5D=9931843&leads%5Bstatus%5D%5B0%5D%5B&account%5Bsubdomain%5D=test",
       "headers": {
         "Http-Host": "zapier.com",
         "Http-User-Agent": "amoCRM-WebHook-client/1.0",

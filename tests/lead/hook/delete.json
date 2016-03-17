@@ -8,7 +8,7 @@
     },
     "trigger_fields": {},
     "request": {
-      "content": "contacts%5Bdelete%5D%5B0%5D%5Bid%5D=52379505&leads%5Bdelete%5D%5B0%5D%5Btype%5D=lead&account%5Bsubdomain%5D=test",
+      "content": "leads%5Bdelete%5D%5B0%5D%5Bid%5D=52379505&leads%5Bdelete%5D%5B0%5D%5Btype%5D=lead&account%5Bsubdomain%5D=test",
       "headers": {
         "Http-Host": "zapier.com",
         "Http-User-Agent": "amoCRM-WebHook-client/1.0",
