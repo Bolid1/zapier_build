@@ -429,7 +429,7 @@ _.extend(CustomFields.prototype, {
         custom_field.code = '';
       }
 
-      switch (custom_field.code) {
+      switch (custom_field.code.toUpperCase()) {
         case 'SMART_ADDRESS':
           cf_value = {};
           _.each(custom_field.values, function (val) {
