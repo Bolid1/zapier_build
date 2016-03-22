@@ -272,9 +272,9 @@ _.extend(Application.prototype, {
 
     result = _.pick(entity, fields);
     if (entity.tags) {
-      result.tags = _.reduce(entity.tags, function (memo, tag) {
-        return (memo ? ', ' : '') + tag.name;
-      }, '');
+      result.tags = _.map(entity.tags, function (tag) {
+        return tag.name;
+      }).join(', ');
     }
 
     _.each(['date_create', 'last_modified'], function (field) {
