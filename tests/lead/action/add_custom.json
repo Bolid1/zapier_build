@@ -1,0 +1,293 @@
+{
+  "bundle": {
+    "raw_url": "https://{{account}}.amocrm.com/private/api/v2/json/accounts/current",
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/accounts/current",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "action_fields": {
+      "query": "{{8061985__text}}",
+      "name": "{{8061985__text}}",
+      "status_id": "10099317"
+    },
+    "response": {
+      "content": "{\"response\":{\"account\":{\"id\":\"9931843\",\"name\":\"aprokinabeta\",\"subdomain\":\"aprokinabeta\",\"currency\":\"NOK\",\"paid_from\":false,\"paid_till\":false,\"timezone\":\"America\\/New_York\",\"language\":\"en\",\"date_pattern\":\"d\\/m\\/Y H:i\",\"date_format\":\"d\\/m\\/Y\",\"time_format\":\"H:i:s\",\"country\":\"lv\",\"unsorted_on\":\"Y\",\"limits\":{\"users_count\":false,\"contacts_count\":false,\"active_deals_count\":false},\"users\":[{\"id\":\"696020\",\"mail_admin\":\"D\",\"name\":\"test test\",\"last_name\":\"\",\"login\":\"test482185@test.test\",\"photo_url\":null,\"phone_number\":null,\"language\":null,\"group_id\":0,\"rights_lead_add\":\"A\",\"rights_lead_view\":\"A\",\"rights_lead_edit\":\"A\",\"rights_lead_delete\":\"A\",\"rights_lead_export\":\"A\",\"rights_contact_add\":\"A\",\"rights_contact_view\":\"A\",\"rights_contact_edit\":\"A\",\"rights_contact_delete\":\"A\",\"rights_contact_export\":\"A\",\"rights_company_add\":\"A\",\"rights_company_view\":\"A\",\"rights_company_edit\":\"A\",\"rights_company_delete\":\"A\",\"rights_company_export\":\"A\",\"unsorted_access\":\"N\",\"is_admin\":null},{\"id\":\"665703\",\"mail_admin\":...",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=13d2qlki3vuifn6b3urmm3rtuncmb6fc2ar9nu2fujqp641jpae0; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Fri, 26-Feb-2021 13:18:25 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sun, 19-Mar-2017 13:18:25 GMT; path=/; domain=.amocrm.com, user_lang=ru; expires=Wed, 24-Mar-2021 13:18:25 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Thu, 24 Mar 2016 13:18:25 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": [
+    {
+      "label": "Unique identified of a responsible user",
+      "type": "int",
+      "key": "responsible_user_id",
+      "choices": {
+        "696020": "test test",
+        "654094": "Stanislav Yupatov",
+        "517237": "Olga",
+        "641553": "Alina Prokina",
+        "665703": "sjahujd",
+        "242836": "\u0412\u0430\u0434\u0438\u043c \u041a\u0443\u043b\u0430\u0433\u0438\u043d",
+        "609921": "\u041c\u0430\u0440\u0438\u044f \u0425\u0440\u0443\u0437\u0438\u043d\u0430",
+        "298923": "Helen",
+        "281868": "dkrasnorutsky@team.amocrm.com",
+        "504141": "\u041d\u0438\u043a\u0438\u0442\u0430 \u0411\u0435\u0441\u0441\u0443\u0434\u043d\u043e\u0432",
+        "471574": "Olga Malgina",
+        "620487": "mnechiporuk@team.amocrm.com",
+        "261002": "dfsd"
+      }
+    },
+    {
+      "required": true,
+      "type": "unicode",
+      "key": "name",
+      "label": "Lead name"
+    },
+    {
+      "type": "datetime",
+      "key": "date_create",
+      "label": "Date of creation of this lead"
+    },
+    {
+      "type": "int",
+      "key": "price",
+      "label": "Lead budget"
+    },
+    {
+      "required": true,
+      "type": "int",
+      "label": "Unique status identifier",
+      "key": "status_id",
+      "choices": {
+        "142": "Pipeline: Closed - won",
+        "143": "Pipeline: Closed - lost",
+        "9931858": "Pipeline: Contract Negotiation",
+        "9931849": "Pipeline: Initial Contactwq",
+        "9931855": "Pipeline: Negotiation",
+        "9931852": "Pipeline: ewrtytewqerty",
+        "10099317": "Pipeline: Agreement signed"
+      }
+    },
+    {
+      "label": "ID of the pipeline in which lead located (for closed statuses)",
+      "type": "int",
+      "key": "pipeline_id",
+      "choices": {
+        "122285": "Test Pipeline #8",
+        "53218": "Pipeline",
+        "122189": "Test Pipeline #0",
+        "96604": "New pipeline",
+        "122228": "Test Pipeline #13",
+        "122243": "Test Pipeline #18",
+        "122240": "Test Pipeline #17",
+        "122246": "Test Pipeline #19",
+        "122249": "Test Pipeline",
+        "122210": "Test Pipeline #7",
+        "122282": "Test Pipeline #7",
+        "122225": "Test Pipeline #12",
+        "122321": "Test Pipeline",
+        "75137": "Pipeline second",
+        "122324": "Test Pipeline",
+        "122303": "Test Pipeline #14",
+        "122300": "Test Pipeline #13",
+        "122222": "Test Pipeline #11",
+        "122207": "Test Pipeline #6",
+        "122204": "Test Pipeline #5",
+        "122264": "Test Pipeline #1",
+        "122201": "Test Pipeline #4",
+        "122309": "Test Pipeline #16",
+        "122306": "Test Pipeline #15",
+        "122198": "Test Pipeline #3",
+        "122192": "Test Pipeline #1",
+        "122195": "Test Pipeline #2",
+        "122213": "Test Pipeline #8",
+        "122252": "Test Pipeline",
+        "122291": "Test Pipeline #10",
+        "122288": "Test Pipeline #9",
+        "122294": "Test Pipeline #11",
+        "122297": "Test Pipeline #12",
+        "122315": "Test Pipeline #18",
+        "122237": "Test Pipeline #16",
+        "122234": "Test Pipeline #15",
+        "122279": "Test Pipeline #6",
+        "122216": "Test Pipeline #9",
+        "122231": "Test Pipeline #14",
+        "122273": "Test Pipeline #4",
+        "122270": "Test Pipeline #3",
+        "122312": "Test Pipeline #17",
+        "122276": "Test Pipeline #5",
+        "122318": "Test Pipeline #19",
+        "122261": "Test Pipeline #0",
+        "122219": "Test Pipeline #10",
+        "122267": "Test Pipeline #2"
+      }
+    },
+    {
+      "label": "Phone call",
+      "type": "int",
+      "key": "custom_fields__1496998",
+      "choices": {
+        "3580074": "No",
+        "3580072": "Yes"
+      }
+    },
+    {
+      "type": "bool",
+      "key": "custom_fields__1496999",
+      "label": "Agree?"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1498631",
+      "label": "\u043d\u043e\u0432\u043e\u0435 \u043f\u043e\u043b\u0435"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503850",
+      "label": "Traffic Source"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503852",
+      "label": "Traffic Type"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503854",
+      "label": "Campaign Name"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503856",
+      "label": "Campaign Keyword"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503858",
+      "label": "GA UTM"
+    },
+    {
+      "type": "int",
+      "label": "Multiselect",
+      "list": true,
+      "key": "custom_fields__1503947",
+      "choices": {
+        "3596733": "Option 1",
+        "3596735": "Option 2"
+      }
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1503949",
+      "label": "URL"
+    },
+    {
+      "type": "int",
+      "label": "Multiselect",
+      "list": true,
+      "key": "custom_fields__1503951",
+      "choices": {
+        "3596745": "wqrqw",
+        "3596739": "Option 2",
+        "3596743": "ww",
+        "3596737": "Option 1",
+        "3596741": "ss"
+      }
+    },
+    {
+      "type": "int",
+      "label": "Multiselect",
+      "list": true,
+      "key": "custom_fields__1503953",
+      "choices": {
+        "3596747": "Option 1",
+        "3596749": "Option 2"
+      }
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1505520",
+      "label": "Wordpress GA"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511345",
+      "label": "\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a \u0442\u0440\u0430\u0444\u0438\u043a\u0430"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511347",
+      "label": "\u0422\u0438\u043f \u0442\u0440\u0430\u0444\u0438\u043a\u0430"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511349",
+      "label": "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0440\u0435\u043a\u043b\u0430\u043c\u043d\u043e\u0439 \u043a\u0430\u043c\u043f\u0430\u043d\u0438\u0438"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511351",
+      "label": "\u041a\u043b\u044e\u0447\u0435\u0432\u043e\u0435 \u0441\u043b\u043e\u0432\u043e \u043a\u0430\u043c\u043f\u0430\u043d\u0438\u0438"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511943",
+      "label": "Fuente del tr\u00e1fico"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511945",
+      "label": "Tipo de trafico"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511947",
+      "label": "Nombre de la compa\u00f1\u00eda"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1511949",
+      "label": "Palabra clave de la compa\u00f1\u00eda"
+    },
+    {
+      "type": "unicode",
+      "key": "custom_fields__1526105",
+      "label": "Text field"
+    }
+  ]
+}
