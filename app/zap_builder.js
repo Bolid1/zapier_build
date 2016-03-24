@@ -72,10 +72,18 @@
           method_args.unshift("'delete'");
         }
 
+        var body_value = "Application." + method + "(" + method_args.join(', ') + ")";
+
+
+        if (action.toString() === 'post_poll') {
+          body_value = "[" + body_value + "]";
+        }
+
         action_name = ['delete', entity, action].join('_');
+
         out.push({
           name: action_name,
-          body: "return Application." + method + "(" + method_args.join(', ') + ");"
+          body: "return " + body_value + ";"
         });
       });
 
@@ -100,7 +108,7 @@
         action_name = [entity, action, 'post_custom_' + action + '_fields'].join('_');
         out.push({
           name: action_name,
-          body: "return Application.prepareFieldsFromAccount('" + action + "_" + action + "', '" + entity + "', bundle.response.content);"
+          body: "return Application.prepareFieldsFromAccount('action_" + action + "', '" + entity + "', bundle.response.content);"
         });
 
         _.each(['pre', 'post'], function (action_prefix) {
@@ -108,7 +116,7 @@
           action_name = [entity, action, action_prefix].join('_');
           out.push({
             name: action_name,
-            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+            body: "return Application." + action_prefix + "('" + entity + "', bundle);"
           });
         });
       });
@@ -146,7 +154,7 @@
         action_name = [entity, action, 'post_custom_' + action + '_fields'].join('_');
         out.push({
           name: action_name,
-          body: "return Application.prepareFieldsFromAccount('" + action + "_" + action + "', '" + entity + "', bundle.response.content);"
+          body: "return Application.prepareFieldsFromAccount('action_" + action + "', '" + entity + "', bundle.response.content);"
         });
 
         _.each(['pre', 'post'], function (action_prefix) {
@@ -154,7 +162,7 @@
           action_name = [entity, action, action_prefix].join('_');
           out.push({
             name: action_name,
-            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+            body: "return Application." + action_prefix + "('" + entity + "', bundle);"
           });
         });
       });
