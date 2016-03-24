@@ -95,17 +95,35 @@
           });
         });
       });
+
+      _.each(['search'], function (action) {
+        action_name = [entity, action, 'post_custom_' + action + '_fields'].join('_');
+        out.push({
+          name: action_name,
+          body: "return Application.prepareFieldsFromAccount('" + action + "_" + action + "', '" + entity + "', bundle.response.content);"
+        });
+
+        _.each(['pre', 'post'], function (action_prefix) {
+          action_prefix += '_' + action;
+          action_name = [entity, action, action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+          });
+        });
+      });
     });
 
     return mapFunctions(out);
   };
 
   var getAdditions = function () {
-    var out = [];
+    var
+      out = [],
+      action_name;
 
     _.each(['task', 'note'], function (entity) {
       _.each(['add', 'update'], function (action) {
-        var action_name;
 
         action_name = [entity, action, 'post_custom_action_fields'].join('_');
 
@@ -116,6 +134,23 @@
 
         _.each(['pre', 'post'], function (action_prefix) {
           action_prefix += '_write';
+          action_name = [entity, action, action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + action + "', '" + entity + "', bundle);"
+          });
+        });
+      });
+
+      _.each(['search'], function (action) {
+        action_name = [entity, action, 'post_custom_' + action + '_fields'].join('_');
+        out.push({
+          name: action_name,
+          body: "return Application.prepareFieldsFromAccount('" + action + "_" + action + "', '" + entity + "', bundle.response.content);"
+        });
+
+        _.each(['pre', 'post'], function (action_prefix) {
+          action_prefix += '_' + action;
           action_name = [entity, action, action_prefix].join('_');
           out.push({
             name: action_name,
