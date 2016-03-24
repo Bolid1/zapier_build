@@ -112,8 +112,19 @@
         });
 
         _.each(['pre', 'post'], function (action_prefix) {
-          action_prefix += '_' + action;
-          action_name = [entity, action, action_prefix].join('_');
+          action_prefix = [action_prefix, action].join('_');
+          action_name = [entity, 'search', action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + entity + "', bundle);"
+          });
+        });
+      });
+
+      _.each(['read_resource'], function (action) {
+        _.each(['post'], function (action_prefix) {
+          action_prefix = [action_prefix, action].join('_');
+          action_name = [entity, 'search', action_prefix].join('_');
           out.push({
             name: action_name,
             body: "return Application." + action_prefix + "('" + entity + "', bundle);"

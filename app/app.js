@@ -60,13 +60,18 @@ _.each(['company', 'contact', 'lead', 'note', 'task'], function (entity) {
             action_name.push('fields');
           } else {
             action_name.push(action.join('_'));
-            action_name.push(is_search ? 'search' : 'write');
+            if (!action[2]) {
+              action_name.push(is_search ? 'search' : 'write');
+            }
           }
           break;
       }
 
       action_name = action_name.length ? action_name.join('_') : null;
-      if (!(action_name && Zap[action_name])) {
+      if (!action_name) {
+        return;
+      } else if (!Zap[action_name]) {
+        console.error(action_name + ' not defined!');
         return;
       }
 

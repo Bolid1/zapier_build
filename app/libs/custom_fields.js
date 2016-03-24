@@ -481,6 +481,10 @@ _.extend(CustomFields.prototype, {
         return;
       }
 
+      if (action === 'read' && custom_field.name) {
+        result[custom_field.name] = cf_value;
+        return;
+      }
       result[custom_field.id] = cf_value;
     }, this);
 

@@ -29,6 +29,37 @@ _.extend(Application.prototype, {
     return this.delete_catch_hook(type, bundle);
   },
 
+  post_read_resource: function (type, bundle) {
+    type = this.convertEntityName(type, 'many');
+    var
+      tmp,
+      entities = [],
+      content = {},
+      api_name = this.convertEntityName(type, 'api_name');
+
+    if (bundle.response.status_code == 204) {
+      return {};
+    }
+
+    if (bundle.response.content) {
+      /** @var {String} tmp */
+      tmp = bundle.response.content;
+      /** @var {Object} tmp */
+      tmp = JSON.parse(tmp);
+      if (tmp && tmp.response && tmp.response[api_name]) {
+        entities = tmp.response[api_name];
+      }
+    }
+
+    if (!entities[0]) {
+      return {};
+    }
+
+    content[api_name] = {read: [entities[0]]};
+
+    return this.convertEntity('read', type, content);
+  },
+
   pre_search: function (type, bundle) {
     bundle.request.params = _.extend(bundle.request.params, bundle.search_fields);
     return bundle.request;
@@ -45,7 +76,7 @@ _.extend(Application.prototype, {
       return [];
     }
 
-    if (bundle.response.content && _.isString(bundle.response.content)) {
+    if (bundle.response.content) {
       /** @var {String} tmp */
       tmp = bundle.response.content;
       /** @var {Object} tmp */
@@ -73,7 +104,7 @@ _.extend(Application.prototype, {
         subdomain: bundle.auth_fields.account
       };
 
-    if (bundle.response.content && _.isString(bundle.response.content)) {
+    if (bundle.response.content) {
       /** @var {String} tmp */
       tmp = bundle.response.content;
       /** @var {Object} tmp */
