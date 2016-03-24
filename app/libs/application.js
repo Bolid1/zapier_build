@@ -36,8 +36,14 @@ _.extend(Application.prototype, {
 
   post_search: function (type, bundle) {
     type = this.convertEntityName(type, 'many');
-    var tmp = [],
+    var
+      tmp,
+      entities = [],
       api_name = this.convertEntityName(type, 'api_name');
+
+    if (bundle.response.status_code == 204) {
+      return [];
+    }
 
     if (bundle.response.content && _.isString(bundle.response.content)) {
       /** @var {String} tmp */
@@ -45,9 +51,15 @@ _.extend(Application.prototype, {
       /** @var {Object} tmp */
       tmp = JSON.parse(tmp);
       if (tmp && tmp.response && tmp.response[api_name]) {
-        tmp = tmp.response[api_name];
+        entities = tmp.response[api_name];
       }
     }
+
+    tmp = _.map(entities, function (entity) {
+      var content = {};
+      content[api_name] = {search: [entity]};
+      return this.convertEntity('search', type, content);
+    }, this);
 
     return tmp;
   },
@@ -101,11 +113,11 @@ _.extend(Application.prototype, {
       data.note_type = CustomFields.getNoteType('common', 'id');
     }
 
-    data.last_modified = moment().format('X');
+    if (action !== 'add') {
+      data.last_modified = moment().format('X');
+    }
     if (data.custom_fields) {
       data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
-    } else {
-      data.custom_fields = [];
     }
 
     request_data[api_name] = {};
@@ -287,7 +299,9 @@ _.extend(Application.prototype, {
       return entity;
     }
 
-    content = URLParams.parse(content);
+    if (_.isString(content)) {
+      content = URLParams.parse(content);
+    }
 
     if (!(content[this.convertEntityName(type, 'api_name')][action][0])) {
       return entity;
@@ -326,7 +340,7 @@ _.extend(Application.prototype, {
       });
     });
 
-    result.custom_fields = CustomFields.convertFromApi(entity.custom_fields);
+    result.custom_fields = CustomFields.convertFromApi(entity.custom_fields, action);
 
     return result;
   },

@@ -426,7 +426,7 @@ _.extend(CustomFields.prototype, {
     return result;
   },
 
-  convertFromApi: function (custom_fields) {
+  convertFromApi: function (custom_fields, action) {
     var result = {};
 
     _.each(custom_fields, function (custom_field) {

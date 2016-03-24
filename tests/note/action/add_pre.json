@@ -58,7 +58,7 @@
       "USER_LOGIN": "v.vargin@team.amocrm.com",
       "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
     },
-    "data": "{\"request\":{\"notes\":{\"add\":[{\"text\":\"gfg\",\"element_id\":52452792,\"element_type\":1,\"note_type\":4,\"last_modified\":\"1457600110\"}]}}}",
+    "data": "{\"request\":{\"notes\":{\"add\":[{\"text\":\"gfg\",\"element_id\":52452792,\"element_type\":1,\"note_type\":4}]}}}",
     "method": "POST"
   }
 }

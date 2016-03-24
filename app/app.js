@@ -32,7 +32,6 @@ console.log('===== new tests =====');
 _.each(['company', 'contact', 'lead', 'note', 'task'], function (entity) {
   _.each(['action', 'hook'], function (type) {
     var test_dir = [new_tests_dir, entity, type].join('/');
-    console.log(test_dir);
     if (!file_system.existsSync(test_dir)) {
       return;
     }
@@ -71,16 +70,17 @@ _.each(['company', 'contact', 'lead', 'note', 'task'], function (entity) {
         return;
       }
 
+      if (is_custom) {
+        test_data.bundle.response.content = file_system.readFileSync([new_tests_dir, 'accounts_current.json'].join('/'), 'utf8');
+      }
+
       result += 'Zap.' + action_name;
       try {
         test_result = Zap[action_name](test_data.bundle);
       } catch (ex) {
         console.error(result + ' error!');
+        console.error(ex.stack);
         return;
-      }
-
-      if (is_custom) {
-        test_data.bundle.data = file_system.readFileSync([new_tests_dir, 'accounts_current.json'].join('/'), 'utf8');
       }
 
       result += ' worked... ';
@@ -91,11 +91,11 @@ _.each(['company', 'contact', 'lead', 'note', 'task'], function (entity) {
         console.error(result, diff);
       } else {
         result += ' success!';
-        console.log(result);
+        //console.log(result);
       }
 
     });
   });
-
-
 });
+
+console.log('===== finished =====');

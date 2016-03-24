@@ -14,6 +14,14 @@ function hasDifference(obj_1, obj_2) {
     tmp_1, tmp_2,
     has_difference;
 
+  if (keys_1.length !== keys_2.length) {
+    return {
+      message: 'keys_1.length !== keys_2.length',
+      keys_1: keys_1,
+      keys_2: keys_2
+    };
+  }
+
   if (_.difference(keys_1, keys_2).length) {
     return {
       message: '_.difference(keys_1, keys_2).length',

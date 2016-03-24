@@ -61,7 +61,7 @@
       "USER_LOGIN": "v.vargin@team.amocrm.com",
       "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
     },
-    "data": "{\"request\":{\"leads\":{\"add\":[{\"pipeline_id\":112177,\"price\":5678,\"name\":\"gfg\",\"status_id\":10450264,\"custom_fields\":[]}]}}}",
+    "data": "{\"request\":{\"leads\":{\"add\":[{\"pipeline_id\":112177,\"price\":5678,\"name\":\"gfg\",\"status_id\":10450264}]}}}",
     "method": "POST"
   }
 }
