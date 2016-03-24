@@ -56,22 +56,27 @@
         });
       });
 
-      action_name = ['delete', entity, 'catch_hook'].join('_');
-      out.push({
-        name: action_name,
-        body: "return Application.delete_catch_hook('" + entity + "', bundle);"
-      });
+      actions = {
+        catch_hook: 'delete_catch_hook',
+        post_poll: 'deletePostPoll',
+        pre_poll: 'hooksPrePoll'
+      };
 
-      action_name = ['delete', entity, 'post_poll'].join('_');
-      out.push({
-        name: action_name,
-        body: "return [Application.deletePostPoll('" + entity + "', bundle)];"
-      });
+      _.each(actions, function (method, action) {
+        var method_args = [
+          "'" + entity + "'",
+          'bundle'
+        ];
 
-      action_name = ['delete', entity, 'pre_poll'].join('_');
-      out.push({
-        name: action_name,
-        body: "return Application.hooksPrePoll('delete', '" + entity + "', bundle);"
+        if (action.toString() === 'pre_poll') {
+          method_args.unshift("'delete'");
+        }
+
+        action_name = ['delete', entity, action].join('_');
+        out.push({
+          name: action_name,
+          body: "return Application." + method + "(" + method_args.join(', ') + ");"
+        });
       });
 
       _.each(['add', 'update'], function (action) {
