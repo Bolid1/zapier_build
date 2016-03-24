@@ -204,10 +204,23 @@ _.extend(CustomFields.prototype, {
     zap_action = action[0];
     action = action[1];
 
+    result = [
+      {
+        type: 'int',
+        key: 'responsible_user_id',
+        label: 'Unique identified of a responsible user',
+        choices: users ? users : undefined
+      }
+    ];
+
+    if (zap_action === 'action' && action === 'search') {
+      return result;
+    }
+
     // Set base fields for all
     is_action_add = zap_action === 'action' && action === 'add';
 
-    result = [
+    result = result.concat([
       {
         type: 'unicode',
         key: 'name',
@@ -218,14 +231,8 @@ _.extend(CustomFields.prototype, {
         type: 'datetime',
         key: 'date_create',
         label: 'Date of creation of this ' + entity_name_lowercase
-      },
-      {
-        type: 'int',
-        key: 'responsible_user_id',
-        label: 'Unique identified of a responsible user',
-        choices: users ? users : undefined
       }
-    ];
+    ]);
 
     if (!is_action_add) {
       result.push({
@@ -602,7 +609,8 @@ _.extend(CustomFields.prototype, {
       return;
     }
 
-    return moment(date).format('X');
+    date = date.replace('datetime-', '');
+    return moment(new Date(date)).format('X');
   }
 });
 

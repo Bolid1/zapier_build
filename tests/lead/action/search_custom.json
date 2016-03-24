@@ -1,0 +1,76 @@
+{
+  "bundle": {
+    "raw_url": "https://{{account}}.amocrm.com/private/api/v2/json/accounts/current/",
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/accounts/current/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "search_fields": {
+      "query": "{{8061985__text}}",
+      "name": "{{8061985__text}}",
+      "status_id": "10099317"
+    },
+    "response": {
+      "content": "",
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=brj96nmnmp46gpu9ithl4vds5onkv2kcndiae4n6ekm842e87711; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Fri, 26-Feb-2021 12:40:51 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sun, 19-Mar-2017 12:40:51 GMT; path=/; domain=.amocrm.com, user_lang=ru; expires=Wed, 24-Mar-2021 12:40:51 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Thu, 24 Mar 2016 12:40:52 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": [
+    {
+      "label": "Unique identified of a responsible user",
+      "type": "int",
+      "key": "responsible_user_id",
+      "choices": {
+        "696020": "test test",
+        "654094": "Stanislav Yupatov",
+        "517237": "Olga",
+        "641553": "Alina Prokina",
+        "665703": "sjahujd",
+        "242836": "\u0412\u0430\u0434\u0438\u043c \u041a\u0443\u043b\u0430\u0433\u0438\u043d",
+        "609921": "\u041c\u0430\u0440\u0438\u044f \u0425\u0440\u0443\u0437\u0438\u043d\u0430",
+        "298923": "Helen",
+        "281868": "dkrasnorutsky@team.amocrm.com",
+        "504141": "\u041d\u0438\u043a\u0438\u0442\u0430 \u0411\u0435\u0441\u0441\u0443\u0434\u043d\u043e\u0432",
+        "471574": "Olga Malgina",
+        "620487": "mnechiporuk@team.amocrm.com",
+        "261002": "dfsd"
+      }
+    }
+  ]
+}

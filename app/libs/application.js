@@ -29,6 +29,29 @@ _.extend(Application.prototype, {
     return this.delete_catch_hook(type, bundle);
   },
 
+  pre_search: function (type, bundle) {
+    bundle.request.params = _.extend(bundle.request.params, bundle.search_fields);
+    return bundle.request;
+  },
+
+  post_search: function (type, bundle) {
+    type = this.convertEntityName(type, 'many');
+    var tmp = [],
+      api_name = this.convertEntityName(type, 'api_name');
+
+    if (bundle.response.content && _.isString(bundle.response.content)) {
+      /** @var {String} tmp */
+      tmp = bundle.response.content;
+      /** @var {Object} tmp */
+      tmp = JSON.parse(tmp);
+      if (tmp && tmp.response && tmp.response[api_name]) {
+        tmp = tmp.response[api_name];
+      }
+    }
+
+    return tmp;
+  },
+
   post_write: function (action, type, bundle) {
     type = this.convertEntityName(type, 'many');
     var tmp,
@@ -81,6 +104,8 @@ _.extend(Application.prototype, {
     data.last_modified = moment().format('X');
     if (data.custom_fields) {
       data.custom_fields = CustomFields.convertToApi(type, data.custom_fields);
+    } else {
+      data.custom_fields = [];
     }
 
     request_data[api_name] = {};
@@ -199,7 +224,7 @@ _.extend(Application.prototype, {
 
     custom_fields = CustomFields.getBaseFields(action, entity, users, statuses, pipelines);
 
-    if (account.custom_fields) {
+    if (account.custom_fields && action !== 'action_search') {
       tmp = account.custom_fields[this.convertEntityName(entity, 'many')];
       tmp = CustomFields.convertFromAccountInfo(tmp);
       _.each(tmp, function (field) {
