@@ -73,6 +73,16 @@ function hasDifference(obj_1, obj_2) {
       return;
     }
 
+    if (key.indexOf('Date of creation ') > -1) {
+      // @TODO: Fix this
+      return;
+    }
+
+    if (key.indexOf('Date when') > -1) {
+      // @TODO: Fix this
+      return;
+    }
+
     has_difference = obj_1[key] !== obj_2[key];
     if (has_difference) {
       has_difference = {

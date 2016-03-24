@@ -198,11 +198,14 @@ _.extend(CustomFields.prototype, {
       entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
       zap_action,
       result,
-      is_action_add;
+      is_action_add,
+      is_all = action === 'all';
 
-    action = action.split('_');
-    zap_action = action[0];
-    action = action[1];
+    if (!is_all) {
+      action = action.split('_');
+      zap_action = action[0];
+      action = action[1];
+    }
 
     result = [
       {
@@ -234,7 +237,7 @@ _.extend(CustomFields.prototype, {
       }
     ]);
 
-    if (!is_action_add) {
+    if (!is_action_add || is_all) {
       result.push({
         type: 'int',
         key: 'id',
@@ -243,7 +246,7 @@ _.extend(CustomFields.prototype, {
       });
     }
 
-    if (zap_action === 'hook') {
+    if (zap_action === 'hook' || is_all) {
       result = result.concat([
         {
           type: 'datetime',
@@ -264,7 +267,7 @@ _.extend(CustomFields.prototype, {
         }
       ]);
 
-      if (zap_action === 'hook' && entity_name_lowercase !== 'lead') {
+      if (zap_action === 'hook' && entity_name_lowercase !== 'lead' || is_all) {
         result.push({
           type: 'int',
           key: 'group_id',
@@ -272,7 +275,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (zap_action === 'hook' && entity_name_lowercase !== 'lead' || zap_action === 'action') {
+      if (zap_action === 'hook' && entity_name_lowercase !== 'lead' || zap_action === 'action' || is_all) {
         result.push({
           type: 'unicode',
           key: 'tags',
@@ -280,7 +283,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (zap_action === 'hook' && entity_name_lowercase === 'contact') {
+      if (zap_action === 'hook' && entity_name_lowercase === 'contact' || is_all) {
         result.push({
           type: 'int',
           key: 'linked_company_id',
@@ -288,7 +291,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (zap_action === 'hook' && action === 'status') {
+      if (zap_action === 'hook' && action === 'status' || is_all) {
         result.push({
           type: 'int',
           key: 'old_status_id',
@@ -296,7 +299,7 @@ _.extend(CustomFields.prototype, {
         });
       }
 
-      if (zap_action === 'hook' && action === 'responsible') {
+      if (zap_action === 'hook' && action === 'responsible' || is_all) {
         result.push({
           type: 'int',
           key: 'old_responsible_user_id',
@@ -306,7 +309,7 @@ _.extend(CustomFields.prototype, {
       }
     }
 
-    if (entity_name_lowercase === 'contact') {
+    if (entity_name_lowercase === 'contact' || is_all) {
       result.push({
         type: 'unicode',
         key: 'company_name',
@@ -314,7 +317,7 @@ _.extend(CustomFields.prototype, {
       });
     }
 
-    if (entity_name_lowercase === 'lead') {
+    if (entity_name_lowercase === 'lead' || is_all) {
       result = result.concat([
         {
           type: 'int',
@@ -331,7 +334,7 @@ _.extend(CustomFields.prototype, {
       ]);
     }
 
-    if (zap_action === 'hook' || pipelines) {
+    if (zap_action === 'hook' || pipelines || is_all) {
       result.push({
         type: 'int',
         key: 'pipeline_id',

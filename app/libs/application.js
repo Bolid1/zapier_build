@@ -57,7 +57,9 @@ _.extend(Application.prototype, {
 
     content[api_name] = {read: [entities[0]]};
 
-    return this.convertEntity('read', type, content);
+    content = this.convertEntity('read', type, content);
+
+    return this.convertForRead(type, content);
   },
 
   pre_search: function (type, bundle) {
@@ -374,6 +376,29 @@ _.extend(Application.prototype, {
     result.custom_fields = CustomFields.convertFromApi(entity.custom_fields, action);
 
     return result;
+  },
+
+  convertForRead: function (type, entity) {
+    var
+      base_fields = CustomFields.getBaseFields('all', type);
+
+    _.each(base_fields, function (field) {
+      if (typeof entity[field.key] === 'undefined') {
+        return;
+      }
+
+      entity[field.label] = entity[field.key];
+
+      delete entity[field.key];
+    });
+
+    _.each(entity.custom_fields, function (cf_value, cf_name) {
+      entity['CF: ' + cf_name] = cf_value;
+    });
+    delete entity.custom_fields;
+
+
+    return entity;
   },
 
   hooksPrePoll: function (action, entity, bundle) {

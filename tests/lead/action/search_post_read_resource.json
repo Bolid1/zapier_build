@@ -1,19 +1,22 @@
 {
   "bundle": {
     "read_fields": {
-      "responsible_user_id": "471574",
-      "tags": "",
-      "price": "45435",
-      "status_id": "9931849",
-      "date_create": "Tue Mar 15 2016 10:38:08 GMT+0000 (UTC)",
+      "responsible_user_id": "298923",
+      "tags": "one more, \u043d\u043e\u0432\u044b\u0439 \u0442\u0435\u0433, \u0435\u0449\u0435 \u043e\u0434\u0438\u043d \u0442\u0435\u0433",
+      "price": "12000",
+      "status_id": "142",
+      "date_create": "Fri Jan 22 2016 10:38:57 GMT+0000 (UTC)",
       "pipeline_id": 53218,
-      "last_modified": "Wed Mar 16 2016 10:27:14 GMT+0000 (UTC)",
+      "last_modified": "Thu Mar 24 2016 15:21:23 GMT+0000 (UTC)",
       "created_user_id": "471574",
-      "group_id": 0,
+      "group_id": 35540,
       "linked_company_id": "",
-      "id": "40415923",
-      "custom_fields": {},
-      "name": "new lead 45"
+      "id": "40249833",
+      "custom_fields": {
+        "1496999": "1",
+        "1526582": "dasfdasf, bvncbvn, n5674, hjgf67, 345245, KZ"
+      },
+      "name": "new lead 345"
     },
     "auth_fields": {
       "login": "v.vargin@team.amocrm.com",
@@ -21,7 +24,7 @@
       "account": "aprokinabeta"
     },
     "request": {
-      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/leads/list/?id=40415923",
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/leads/list/?id=40249833",
       "auth": null,
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
@@ -38,23 +41,23 @@
       "frontend": true
     },
     "read_context": {
-      "query": "new lead 45",
-      "name": "new lead 45",
+      "query": "new lead 345",
+      "name": "new lead 345",
       "status_id": "10099317"
     },
     "response": {
-      "content": "{\"response\":{\"leads\":[{\"id\":\"40415923\",\"name\":\"new lead 45\",\"date_create\":1458038288,\"created_user_id\":\"471574\",\"last_modified\":1458124034,\"status_id\":\"9931849\",\"sort\":\"10\",\"price\":\"45435\",\"responsible_user_id\":\"471574\",\"tags\":[],\"linked_company_id\":\"\",\"group_id\":0,\"pipeline_id\":53218,\"date_close\":\"\",\"account_id\":\"9931843\",\"deleted\":0,\"custom_fields\":null}],\"server_time\":1458832920}}",
+      "content": "{\"response\":{\"leads\":[{\"id\":\"40249833\",\"name\":\"new lead 345\",\"date_create\":1453459137,\"created_user_id\":\"471574\",\"last_modified\":1458832883,\"status_id\":\"142\",\"sort\":\"10000\",\"price\":\"12000\",\"responsible_user_id\":\"298923\",\"tags\":[{\"id\":\"1502727\",\"name\":\"one more\"},{\"id\":\"1502955\",\"name\":\"\\u043d\\u043e\\u0432\\u044b\\u0439 \\u0442\\u0435\\u0433\"},{\"id\":\"1502957\",\"name\":\"\\u0435\\u0449\\u0435 \\u043e\\u0434\\u0438\\u043d \\u0442\\u0435\\u0433\"}],\"linked_company_id\":\"\",\"group_id\":35540,\"pipeline_id\":53218,\"date_close\":1453990589,\"account_id\":\"9931843\",\"deleted\":0,\"custom_fields\":[{\"id\":\"1496999\",\"name\":\"Agree?\",\"values\":[{\"value\":\"1\"}]},{\"id\":\"1526582\",\"name\":\"asdfadsf\",\"values\":[{\"value\":\"dasfdasf\",\"subtype\":\"1\"},{\"value\":\"bvncbvn\",\"subtype\":\"2\"},{\"value\":\"n5674\",\"subtype\":\"3\"},{\"value\":\"hjgf67\",\"subtype\":\"4\"},{\"value\":\"345245\",\"subtype\":\"5\"},{\"value\":\"KZ\",\"subtype\":\"6\"}]}]}],\"server_time\":1458834105}}",
       "status_code": 200,
       "headers": {
         "content-encoding": "gzip",
         "transfer-encoding": "chunked",
-        "set-cookie": "session_id=751vvni7chje0vle98ofau0uoqcs085502vbit2n0gv7qpv9sdr0; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Fri, 26-Feb-2021 15:22:00 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Sun, 19-Mar-2017 15:22:00 GMT; path=/; domain=.amocrm.com, user_lang=ru; expires=Wed, 24-Mar-2021 15:22:00 GMT; path=/; domain=.amocrm.com",
+        "set-cookie": "session_id=mthh6ig0lon2bpg9tqtdmdn5h15hhsklvv9nvaeojg59qj2ffm00; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Fri, 26-Feb-2021 15:41:45 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=124032; expires=Sun, 19-Mar-2017 15:41:45 GMT; path=/; domain=.amocrm.com, user_lang=ru; expires=Wed, 24-Mar-2021 15:41:45 GMT; path=/; domain=.amocrm.com",
         "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
         "server": "nginx",
         "connection": "keep-alive",
         "pragma": "no-cache",
         "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
-        "date": "Thu, 24 Mar 2016 15:22:00 GMT",
+        "date": "Thu, 24 Mar 2016 15:41:45 GMT",
         "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
         "content-type": "application/json; charset=\"utf-8\""
       }
@@ -69,18 +72,19 @@
     }
   },
   "result": {
-    "responsible_user_id": "471574",
-    "status_id": "9931849",
-    "price": "45435",
-    "tags": "",
-    "date_create": "Tue Mar 15 2016 10:38:08 GMT+0000 (UTC)",
-    "pipeline_id": 53218,
-    "last_modified": "Wed Mar 16 2016 10:27:14 GMT+0000 (UTC)",
-    "created_user_id": "471574",
-    "group_id": 0,
-    "linked_company_id": "",
-    "id": "40415923",
-    "custom_fields": {},
-    "name": "new lead 45"
+    "Unique lead identifier": "40249833",
+    "CF: Agree?": "1",
+    "Unique status identifier": "142",
+    "ID of the pipeline in which lead located": 53218,
+    "Date of creation of this lead": "Fri Jan 22 2016 10:38:57 GMT+0000 (UTC)",
+    "Unique identified of a group": 35540,
+    "Lead name": "new lead 345",
+    "Unique identified of a responsible user": "298923",
+    "Date when lead was modified": "Thu Mar 24 2016 15:21:23 GMT+0000 (UTC)",
+    "CF: asdfadsf": "dasfdasf, bvncbvn, n5674, hjgf67, 345245, KZ",
+    "Unique identified of a linked company": "",
+    "Lead budget": "12000",
+    "Tag names separated by commas": "one more, \u043d\u043e\u0432\u044b\u0439 \u0442\u0435\u0433, \u0435\u0449\u0435 \u043e\u0434\u0438\u043d \u0442\u0435\u0433",
+    "Unique identified of a user which has created this lead": "471574"
   }
 }
