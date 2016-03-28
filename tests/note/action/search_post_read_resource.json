@@ -39,39 +39,18 @@
       "type": "contact"
     },
     "response": {
-      "content": {
-        "response":{
-          "notes":[
-            {
-              "id":"81142277",
-              "element_id":"52513083",
-              "element_type":"1",
-              "note_type":"2",
-              "date_create":1457690106,
-              "created_user_id":"654094",
-              "last_modified":1457690803,
-              "text":"New object added",
-              "responsible_user_id":"471574",
-              "account_id":"9931843",
-              "ATTACHEMENT":"",
-              "group_id":0,
-              "editable":"N"
-            }
-          ],
-          "server_time":1459181982
-        }
-      },
+      "content": "{\"response\":{\"notes\":[{\"id\":\"81142277\",\"element_id\":\"52513083\",\"element_type\":\"1\",\"note_type\":\"2\",\"date_create\":1457690106,\"created_user_id\":\"654094\",\"last_modified\":1457690803,\"text\":\"New object added\",\"responsible_user_id\":\"471574\",\"account_id\":\"9931843\",\"ATTACHEMENT\":\"\",\"group_id\":0,\"editable\":\"N\"}],\"server_time\":1459183408}}",
       "status_code": 200,
       "headers": {
         "content-encoding": "gzip",
         "transfer-encoding": "chunked",
-        "set-cookie": "session_id=jc6nh6cvqkm3gaskio54f2mlcmsv1keelstla7q3532fu21gjtb1; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Tue, 02-Mar-2021 16:19:42 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Thu, 23-Mar-2017 16:19:42 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Sun, 28-Mar-2021 16:19:42 GMT; path=/; domain=.amocrm.com",
+        "set-cookie": "session_id=0okgo5p4h01j4tt81mmpinvmpfgbfc5ga330025pufed4gbbs780; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Tue, 02-Mar-2021 16:43:28 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Thu, 23-Mar-2017 16:43:28 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Sun, 28-Mar-2021 16:43:28 GMT; path=/; domain=.amocrm.com",
         "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
         "server": "nginx",
         "connection": "keep-alive",
         "pragma": "no-cache",
         "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
-        "date": "Mon, 28 Mar 2016 16:19:42 GMT",
+        "date": "Mon, 28 Mar 2016 16:43:28 GMT",
         "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
         "content-type": "application/json; charset=\"utf-8\""
       }
@@ -86,11 +65,16 @@
     }
   },
   "result": {
+    "Text of note": "New object added",
     "Unique note identifier": "81142277",
     "Unique identified of a group": 0,
     "Date of creation of this note": "Fri Mar 11 2016 09:55:06 GMT+0000 (UTC)",
+    "Type of element to be linked": "1",
     "Unique identified of a responsible user": "471574",
+    "Unique identifier of the contact or lead (contact/lead must be indicated in element_type)": "52513083",
     "Date when note was modified": "Fri Mar 11 2016 10:06:43 GMT+0000 (UTC)",
-    "Unique identified of a user which has created this note": "654094"
+    "Indicates possibility of editing this note: \"Y\" or \"N\"": "N",
+    "Unique identified of a user which has created this note": "654094",
+    "Note type": "2"
   }
 }

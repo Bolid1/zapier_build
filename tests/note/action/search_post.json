@@ -57,10 +57,15 @@
   },
   "result": [
     {
+      "note_type": "2",
       "responsible_user_id": "471574",
+      "text": "New object added",
+      "editable": "N",
       "date_create": "Fri Mar 11 2016 09:55:06 GMT+0000 (UTC)",
+      "element_type": "1",
       "last_modified": "Fri Mar 11 2016 10:06:43 GMT+0000 (UTC)",
       "created_user_id": "654094",
+      "element_id": "52513083",
       "group_id": 0,
       "id": "81142277",
       "custom_fields": {}

@@ -335,7 +335,12 @@ _.extend(Application.prototype, {
         'price',
         'status_id',
         'company_name',
-        'old_status_id'
+        'old_status_id',
+        'element_id',
+        'element_type',
+        'note_type',
+        'text',
+        'editable'
       ];
 
     if (!content) {
@@ -389,8 +394,16 @@ _.extend(Application.prototype, {
   },
 
   convertForRead: function (type, entity) {
-    var
-      base_fields = CustomFields.getBaseFields('all', type);
+    var base_fields;
+    switch (type) {
+      case 'tasks':
+      case 'notes':
+        base_fields = CustomFields.getAdditionsFields('all', type);
+        break;
+      default:
+        base_fields = CustomFields.getBaseFields('all', type);
+        break;
+    }
 
     _.each(base_fields, function (field) {
       if (typeof entity[field.key] === 'undefined') {

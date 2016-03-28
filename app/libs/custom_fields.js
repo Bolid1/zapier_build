@@ -352,26 +352,36 @@ _.extend(CustomFields.prototype, {
       entity_name_lowercase = Application.convertEntityName(entity, 'single', false),
       zap_action,
       result,
-      is_action_add;
+      is_action_add,
+      is_all = action === 'all';
 
-    action = action.split('_');
-    zap_action = action[0];
-    action = action[1];
-
-    // Set base fields for all
-    is_action_add = zap_action === 'action' && action === 'add';
+    if (!is_all) {
+      action = action.split('_');
+      zap_action = action[0];
+      action = action[1];
+    }
 
     result = [
-      {
-        type: 'datetime',
-        key: 'date_create',
-        label: 'Date of creation of this ' + entity_name_lowercase
-      },
       {
         type: 'int',
         key: 'responsible_user_id',
         label: 'Unique identified of a responsible user',
         choices: users ? users : undefined
+      }
+    ];
+
+    if (zap_action === 'action' && action === 'search') {
+      return result;
+    }
+
+    // Set base fields for all
+    is_action_add = zap_action === 'action' && action === 'add';
+
+    result = result.concat([
+      {
+        type: 'datetime',
+        key: 'date_create',
+        label: 'Date of creation of this ' + entity_name_lowercase
       },
       {
         type: 'int',
@@ -390,9 +400,35 @@ _.extend(CustomFields.prototype, {
         },
         required: true
       }
-    ];
+    ]);
 
-    if (!is_action_add) {
+    if (is_all) {
+      result = result.concat([
+        {
+          type: 'int',
+          key: 'created_user_id',
+          label: 'Unique identified of a user which has created this ' + entity_name_lowercase,
+          choices: users ? users : undefined
+        },
+        {
+          type: 'datetime',
+          key: 'last_modified',
+          label: 'Date when ' + entity_name_lowercase + ' was modified'
+        },
+        {
+          type: 'unicode',
+          key: 'editable',
+          label: 'Indicates possibility of editing this ' + entity_name_lowercase + ': "Y" or "N"'
+        },
+        {
+          type: 'int',
+          key: 'group_id',
+          label: 'Unique identified of a group'
+        }
+      ]);
+    }
+
+    if (!is_action_add || is_all) {
       result.push({
         type: 'int',
         key: 'id',
@@ -424,6 +460,15 @@ _.extend(CustomFields.prototype, {
           required: is_action_add
         }
       ]);
+    }
+
+    if (entity_name_lowercase === 'note') {
+      result.push({
+        type: 'int',
+        key: 'note_type',
+        label: 'Note type',
+        choices: users ? users : undefined
+      });
     }
 
     return result;
