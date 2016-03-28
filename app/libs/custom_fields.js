@@ -413,7 +413,7 @@ _.extend(CustomFields.prototype, {
         {
           type: 'datetime',
           key: 'complete_till',
-          label: 'A date by which the task must be completed. If time has value 23:59, then “All day” will be displayed in system interfaces instead of time.',
+          label: 'A date by which the task must be completed. If time has value 23:59, then \"All day\" will be displayed in system interfaces instead of time.',
           required: is_action_add
         },
         {

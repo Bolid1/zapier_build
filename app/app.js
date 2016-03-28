@@ -8,8 +8,7 @@ var
   new_tests_dir = current_dir + '/../tests',
   out = [],
   out_tests = [],
-  out_folder = '/../result',
-  out_file = out_folder + '/script.js';
+  out_file = '/../deploy/app.js';
 
 _.each(file_system.readdirSync(libs_dir), function (lib_name) {
   out.push(file_system.readFileSync(libs_dir + '/' + lib_name, 'utf8'));
@@ -17,7 +16,7 @@ _.each(file_system.readdirSync(libs_dir), function (lib_name) {
 
 out.push(ZapBuilder.make());
 
-file_system.writeFileSync(current_dir + out_file, ['"use strict";'].concat(out).join("\n\n"));
+file_system.writeFileSync(current_dir + out_file, ['"use strict";'].concat(out).join("\n\n") + "\n");
 
 // test
 out_tests = [];

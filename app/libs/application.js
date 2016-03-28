@@ -29,6 +29,12 @@ _.extend(Application.prototype, {
     return this.delete_catch_hook(type, bundle);
   },
 
+  pre_read_resource: function (type, bundle) {
+    bundle.request.params = _.extend(bundle.request.params, bundle.read_context);
+
+    return bundle.request;
+  },
+
   post_read_resource: function (type, bundle) {
     type = this.convertEntityName(type, 'many');
     var
@@ -45,7 +51,7 @@ _.extend(Application.prototype, {
       /** @var {String} tmp */
       tmp = bundle.response.content;
       /** @var {Object} tmp */
-      tmp = JSON.parse(tmp);
+      tmp = _.isString(tmp) ? JSON.parse(tmp) : tmp;
       if (tmp && tmp.response && tmp.response[api_name]) {
         entities = tmp.response[api_name];
       }
@@ -235,6 +241,10 @@ _.extend(Application.prototype, {
   },
 
   prepareFieldsFromAccount: function (action, entity, content) {
+    if (entity === 'task' || entity === 'note') {
+      return this.prepareFieldsFromAccountForAdditions(action, entity, content);
+    }
+
     var account, tmp, users, statuses, pipelines,
       custom_fields;
 

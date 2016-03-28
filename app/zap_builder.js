@@ -148,7 +148,7 @@
 
         out.push({
           name: action_name,
-          body: "return Application.prepareFieldsFromAccountForAdditions('action_" + action + "', '" + entity + "', bundle.response.content);"
+          body: "return Application.prepareFieldsFromAccount('action_" + action + "', '" + entity + "', bundle.response.content);"
         });
 
         _.each(['pre', 'post'], function (action_prefix) {
@@ -171,6 +171,17 @@
         _.each(['pre', 'post'], function (action_prefix) {
           action_prefix += '_' + action;
           action_name = [entity, action, action_prefix].join('_');
+          out.push({
+            name: action_name,
+            body: "return Application." + action_prefix + "('" + entity + "', bundle);"
+          });
+        });
+      });
+
+      _.each(['read_resource'], function (action) {
+        _.each(['pre', 'post'], function (action_prefix) {
+          action_prefix = [action_prefix, action].join('_');
+          action_name = [entity, 'search', action_prefix].join('_');
           out.push({
             name: action_name,
             body: "return Application." + action_prefix + "('" + entity + "', bundle);"

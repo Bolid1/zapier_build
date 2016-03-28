@@ -1,0 +1,64 @@
+{
+  "bundle": {
+    "read_fields": {
+      "responsible_user_id": "471574",
+      "date_create": "Fri Mar 11 2016 09:55:06 GMT+0000 (UTC)",
+      "last_modified": "Fri Mar 11 2016 10:06:43 GMT+0000 (UTC)",
+      "created_user_id": "654094",
+      "group_id": 0,
+      "id": "81142277",
+      "custom_fields": {}
+    },
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "files": null,
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/notes/list/?id=81142277",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "meta": {
+      "frontend": true
+    },
+    "read_context": {
+      "element_id": "52513083",
+      "type": "contact"
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/notes/list/?id={{id}}",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": null,
+    "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/notes/list/?id=81142277",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "element_id": "52513083",
+      "type": "contact",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+    },
+    "data": null,
+    "method": "GET"
+  }
+}
