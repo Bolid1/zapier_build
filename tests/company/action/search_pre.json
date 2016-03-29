@@ -7,7 +7,7 @@
     },
     "request": {
       "files": null,
-      "url": "https://test.amocrm.com/private/api/v2/json/tasks/list/",
+      "url": "https://test.amocrm.com/private/api/v2/json/company/list/",
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
         "Accept": "application/json"
@@ -20,20 +20,12 @@
       "method": "GET"
     },
     "search_fields": {
-      "task_type": "179903",
-      "text": "dfsdrts5467hjgfhj",
-      "complete_till": "now",
-      "element_type": "1",
-      "element_id": "52513083",
-      "type": "lead",
-      "id": [
-        "4634634734724572457"
-      ]
+      "query": "52513083"
     },
     "meta": {
       "frontend": true
     },
-    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/tasks/list/",
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/company/list/",
     "zap": {
       "live": false,
       "link": "https://zapier.com/app/edit/8061985",
@@ -45,19 +37,15 @@
   },
   "result": {
     "files": null,
-    "url": "https://test.amocrm.com/private/api/v2/json/tasks/list/",
+    "url": "https://test.amocrm.com/private/api/v2/json/company/list/",
     "headers": {
       "Content-Type": "application/json; charset=utf-8",
       "Accept": "application/json"
     },
     "params": {
-      "type": "contact",
-      "element_id": "52513083",
       "USER_LOGIN": "v.vargin@team.amocrm.com",
       "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02",
-      "id": [
-        "4634634734724572457"
-      ]
+      "query": "52513083"
     },
     "data": null,
     "method": "GET"

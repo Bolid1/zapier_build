@@ -4,10 +4,10 @@
     "auth_fields": {
       "login": "v.vargin@team.amocrm.com",
       "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
-      "account": "aprokinabeta"
+      "account": "test"
     },
     "request": {
-      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/accounts/current",
+      "url": "https://test.amocrm.com/private/api/v2/json/accounts/current",
       "auth": null,
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
@@ -26,7 +26,7 @@
       "status_id": "10099317"
     },
     "response": {
-      "content": "{\"response\":{\"account\":{\"id\":\"9931843\",\"name\":\"aprokinabeta\",\"subdomain\":\"aprokinabeta\",\"currency\":\"NOK\",\"paid_from\":false,\"paid_till\":false,\"timezone\":\"America\\/New_York\",\"language\":\"en\",\"date_pattern\":\"d\\/m\\/Y H:i\",\"date_format\":\"d\\/m\\/Y\",\"time_format\":\"H:i:s\",\"country\":\"lv\",\"unsorted_on\":\"Y\",\"limits\":{\"users_count\":false,\"contacts_count\":false,\"active_deals_count\":false},\"users\":[{\"id\":\"696020\",\"mail_admin\":\"D\",\"name\":\"test test\",\"last_name\":\"\",\"login\":\"test482185@test.test\",\"photo_url\":null,\"phone_number\":null,\"language\":null,\"group_id\":0,\"rights_lead_add\":\"A\",\"rights_lead_view\":\"A\",\"rights_lead_edit\":\"A\",\"rights_lead_delete\":\"A\",\"rights_lead_export\":\"A\",\"rights_contact_add\":\"A\",\"rights_contact_view\":\"A\",\"rights_contact_edit\":\"A\",\"rights_contact_delete\":\"A\",\"rights_contact_export\":\"A\",\"rights_company_add\":\"A\",\"rights_company_view\":\"A\",\"rights_company_edit\":\"A\",\"rights_company_delete\":\"A\",\"rights_company_export\":\"A\",\"unsorted_access\":\"N\",\"is_admin\":null},{\"id\":\"665703\",\"mail_admin\":...",
+      "content": "{\"response\":{\"account\":{\"id\":\"9931843\",\"name\":\"test\",\"subdomain\":\"test\",\"currency\":\"NOK\",\"paid_from\":false,\"paid_till\":false,\"timezone\":\"America\\/New_York\",\"language\":\"en\",\"date_pattern\":\"d\\/m\\/Y H:i\",\"date_format\":\"d\\/m\\/Y\",\"time_format\":\"H:i:s\",\"country\":\"lv\",\"unsorted_on\":\"Y\",\"limits\":{\"users_count\":false,\"contacts_count\":false,\"active_deals_count\":false},\"users\":[{\"id\":\"696020\",\"mail_admin\":\"D\",\"name\":\"test test\",\"last_name\":\"\",\"login\":\"test482185@test.test\",\"photo_url\":null,\"phone_number\":null,\"language\":null,\"group_id\":0,\"rights_lead_add\":\"A\",\"rights_lead_view\":\"A\",\"rights_lead_edit\":\"A\",\"rights_lead_delete\":\"A\",\"rights_lead_export\":\"A\",\"rights_contact_add\":\"A\",\"rights_contact_view\":\"A\",\"rights_contact_edit\":\"A\",\"rights_contact_delete\":\"A\",\"rights_contact_export\":\"A\",\"rights_company_add\":\"A\",\"rights_company_view\":\"A\",\"rights_company_edit\":\"A\",\"rights_company_delete\":\"A\",\"rights_company_export\":\"A\",\"unsorted_access\":\"N\",\"is_admin\":null},{\"id\":\"665703\",\"mail_admin\":...",
       "status_code": 200,
       "headers": {
         "content-encoding": "gzip",

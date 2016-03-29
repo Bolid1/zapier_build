@@ -40,7 +40,7 @@
         action_name = [action, entity, 'catch_hook'].join('_');
         out.push({
           name: action_name,
-          body: "return Application.convertEntity('" + action + "', '" + entity + "', bundle.request.content);"
+          body: "return Application.convertEntity('" + action + "', '" + entity + "', bundle.request.content, bundle.auth_fields.account);"
         });
 
         action_name = [action, entity, 'pre_poll'].join('_');
@@ -52,7 +52,7 @@
         action_name = [action, entity, 'post_poll'].join('_');
         out.push({
           name: action_name,
-          body: "return [Application.convertEntity('" + action + "', '" + entity + "', bundle.response.content)];"
+          body: "return [Application.convertEntity('" + action + "', '" + entity + "', bundle.response.content, bundle.auth_fields.account)];"
         });
       });
 

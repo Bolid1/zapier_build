@@ -1,0 +1,122 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "test"
+    },
+    "request": {
+      "files": null,
+      "url": "https://test.amocrm.com/private/api/v2/json/company/list/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+        "query": "52513083"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "search_fields": {
+      "query": "52513083"
+    },
+    "meta": {
+      "frontend": true
+    },
+    "response": {
+      "content": {
+        "response": {
+          "contacts": [
+            {
+              "id": 52513067,
+              "name": "test test",
+              "last_modified": 1459241231,
+              "account_id": 9931843,
+              "date_create": 1457689883,
+              "created_user_id": 654094,
+              "responsible_user_id": 471574,
+              "linked_leads_id": [],
+              "group_id": 0,
+              "tags": [],
+              "company_name": "",
+              "linked_company_id": null,
+              "type": "company",
+              "custom_fields": [
+                {
+                  "id": "1486965",
+                  "name": "Phone",
+                  "code": "PHONE",
+                  "values": [
+                    {
+                      "value": "123454323",
+                      "enum": "3556213"
+                    }
+                  ]
+                },
+                {
+                  "id": "1486967",
+                  "name": "Email",
+                  "code": "EMAIL",
+                  "values": [
+                    {
+                      "value": "52513083",
+                      "enum": "3556225"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "server_time": 1459241240
+        }
+      },
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=r05ekrmrqkgck26efk09l8iutfgaddllatap7ung9skarih7sej1; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Wed, 03-Mar-2021 08:47:19 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Fri, 24-Mar-2017 08:47:19 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Mon, 29-Mar-2021 08:47:19 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Tue, 29 Mar 2016 08:47:20 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": [
+    {
+      "responsible_user_id": 471574,
+      "tags": "",
+      "date_create": "Fri Mar 11 2016 09:51:23 GMT+0000 (UTC)",
+      "last_modified": "Tue Mar 29 2016 08:47:11 GMT+0000 (UTC)",
+      "created_user_id": 654094,
+      "group_id": 0,
+      "id": 52513067,
+      "link": "https://test.amocrm.com/companies/detail/52513067",
+      "custom_fields": {
+        "1486967": {
+          "3556225": "52513083"
+        },
+        "1486965": {
+          "3556213": "123454323"
+        }
+      },
+      "name": "test test"
+    }
+  ]
+}

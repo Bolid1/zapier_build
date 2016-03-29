@@ -15,11 +15,11 @@
     "auth_fields": {
       "login": "v.vargin@team.amocrm.com",
       "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
-      "account": "aprokinabeta"
+      "account": "test"
     },
     "request": {
       "files": null,
-      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
+      "url": "https://test.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
         "Accept": "application/json"
@@ -54,7 +54,7 @@
   },
   "result": {
     "files": null,
-    "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
+    "url": "https://test.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
     "headers": {
       "Content-Type": "application/json; charset=utf-8",
       "Accept": "application/json"

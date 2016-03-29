@@ -63,7 +63,7 @@ _.extend(Application.prototype, {
 
     content[api_name] = {read: [entities[0]]};
 
-    content = this.convertEntity('read', type, content);
+    content = this.convertEntity('read', type, content, bundle.auth_fields.account);
 
     return this.convertForRead(type, content);
   },
@@ -116,7 +116,7 @@ _.extend(Application.prototype, {
     tmp = _.map(entities, function (entity) {
       var content = {};
       content[api_name] = {search: [entity]};
-      return this.convertEntity('search', type, content);
+      return this.convertEntity('search', type, content, bundle.auth_fields.account);
     }, this);
 
     return tmp;
@@ -355,7 +355,7 @@ _.extend(Application.prototype, {
     return CustomFields.getAdditionsFields(action, entity, users, types);
   },
 
-  convertEntity: function (action, type, content) {
+  convertEntity: function (action, type, content, subdomain) {
     var
       result,
       entity = {},
@@ -365,13 +365,11 @@ _.extend(Application.prototype, {
         'created_user_id',
         'modified_user_id',
         'pipeline_id',
-        'linked_company_id',
         'responsible_user_id',
         'old_responsible_user_id',
         'group_id',
         'price',
         'status_id',
-        'company_name',
         'old_status_id',
         'element_id',
         'element_type',
@@ -379,6 +377,13 @@ _.extend(Application.prototype, {
         'text',
         'editable'
       ];
+
+    if (this.convertEntityName(type, 'single') !== 'company') {
+      fields = fields.concat([
+        'linked_company_id',
+        'company_name'
+      ]);
+    }
 
     if (!content) {
       return entity;
@@ -426,6 +431,10 @@ _.extend(Application.prototype, {
     });
 
     result.custom_fields = CustomFields.convertFromApi(entity.custom_fields, action);
+
+    if (_.indexOf(['contacts', 'leads', 'companies'], this.convertEntityName(type, 'many')) > -1) {
+      result.link = URLParams.buildUrl(subdomain, this.convertEntityName(type, 'many') + '/detail/' + result.id);
+    }
 
     return result;
   },

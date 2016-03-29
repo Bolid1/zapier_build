@@ -21,10 +21,10 @@
     "auth_fields": {
       "login": "v.vargin@team.amocrm.com",
       "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
-      "account": "aprokinabeta"
+      "account": "test"
     },
     "request": {
-      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/leads/list/?id=40249833",
+      "url": "https://test.amocrm.com/private/api/v2/json/leads/list/?id=40249833",
       "auth": null,
       "headers": {
         "Content-Type": "application/json; charset=utf-8",
@@ -73,6 +73,7 @@
   },
   "result": {
     "Unique lead identifier": "40249833",
+    "link": "https://test.amocrm.com/leads/detail/40249833",
     "CF: Agree?": "1",
     "Unique status identifier": "142",
     "ID of the pipeline in which lead located": 53218,

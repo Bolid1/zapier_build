@@ -12,11 +12,11 @@
     "auth_fields": {
       "login": "v.vargin@team.amocrm.com",
       "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
-      "account": "aprokinabeta"
+      "account": "test"
     },
     "request": {
       "files": null,
-      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/notes/list/?id=81142277",
+      "url": "https://test.amocrm.com/private/api/v2/json/notes/list/?id=81142277",
       "auth": null,
       "headers": {
         "Content-Type": "application/json; charset=utf-8",

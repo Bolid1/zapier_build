@@ -2,8 +2,8 @@
   "response": {
     "account": {
       "id": "9931843",
-      "name": "aprokinabeta",
-      "subdomain": "aprokinabeta",
+      "name": "test",
+      "subdomain": "test",
       "currency": "NOK",
       "paid_from": false,
       "paid_till": false,
