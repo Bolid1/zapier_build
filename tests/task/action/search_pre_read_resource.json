@@ -1,0 +1,71 @@
+{
+  "bundle": {
+    "read_fields": {
+      "responsible_user_id": "654094",
+      "text": "\u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d \u043a\u043e\u043d\u0442\u0430\u043a\u0442",
+      "date_create": "Fri Mar 11 2016 09:55:07 GMT+0000 (UTC)",
+      "element_type": "1",
+      "last_modified": "Fri Mar 11 2016 09:55:07 GMT+0000 (UTC)",
+      "created_user_id": "654094",
+      "element_id": "52513083",
+      "group_id": 35540,
+      "id": "24196903",
+      "custom_fields": {}
+    },
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "files": null,
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "meta": {
+      "frontend": true
+    },
+    "read_context": {
+      "task_type": "179903",
+      "text": "dfsdrts5467hjgfhj",
+      "complete_till": "now",
+      "element_type": "1",
+      "element_id": "52513083",
+      "type": "lead"
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/tasks/list/?id={{id}}",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": null,
+    "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/list/?id=24196903",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "element_id": "52513083",
+      "type": "contact"
+    },
+    "data": null,
+    "method": "GET"
+  }
+}

@@ -8,9 +8,15 @@ var
   new_tests_dir = current_dir + '/../tests',
   out = [],
   out_tests = [],
-  out_file = '/../deploy/app.js';
+  deploy_path = './../deploy',
+  out_file = deploy_path + '/app.js';
 
-_.each(file_system.readdirSync(libs_dir), function (lib_name) {
+['Searches'].forEach(function (conf) {
+  var data = file_system.readFileSync(deploy_path + '/' + conf + '.json', 'utf8');
+  out.push('var conf' + conf + ' = ' + data.trim() + ';');
+});
+
+file_system.readdirSync(libs_dir).forEach(function (lib_name) {
   out.push(file_system.readFileSync(libs_dir + '/' + lib_name, 'utf8'));
 });
 
@@ -88,6 +94,10 @@ _.each(['company', 'contact', 'lead', 'note', 'task'], function (entity) {
       }
 
       result += ' worked... ';
+
+      if (typeof test_data.result.data === 'object' && typeof test_result.data === 'string') {
+        test_data.result.data = JSON.stringify(test_data.result.data);
+      }
 
       diff = hasDifference(test_data.result, test_result);
       if (diff) {

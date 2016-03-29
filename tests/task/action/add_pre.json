@@ -1,0 +1,96 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "files": {},
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/set/",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": "{\"task_type\": 179903, \"text\": \"dfsdrts5467hjgfhj\", \"complete_till\": \"2016-03-29T06:54:58+00:00\", \"element_type\": 1, \"element_id\": 52513083, \"type\": \"lead\", \"id\": [\"4634634734724572457\"]}",
+      "method": "POST"
+    },
+    "action_fields": {
+      "task_type": 179903,
+      "text": "dfsdrts5467hjgfhj",
+      "complete_till": "datetime-2016-03-29T06:54:58+00:00",
+      "element_type": 1,
+      "element_id": 52513083,
+      "type": "lead",
+      "id": [
+        "4634634734724572457"
+      ]
+    },
+    "action_fields_full": {
+      "task_type": 179903,
+      "text": "dfsdrts5467hjgfhj",
+      "complete_till": "datetime-2016-03-29T06:54:58+00:00",
+      "element_type": 1,
+      "element_id": 52513083,
+      "type": "lead",
+      "id": [
+        "4634634734724572457"
+      ]
+    },
+    "meta": {
+      "frontend": true
+    },
+    "action_fields_raw": {
+      "task_type": "179903",
+      "text": "dfsdrts5467hjgfhj",
+      "complete_till": "now",
+      "element_type": "1",
+      "element_id": "{{8061985__text}}",
+      "type": "lead",
+      "id": [
+        "4634634734724572457"
+      ]
+    },
+    "url_raw": "https://{{account}}.amocrm.com/private/api/v2/json/tasks/set/",
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": {
+    "files": {},
+    "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/set/",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Accept": "application/json"
+    },
+    "params": {
+      "USER_LOGIN": "v.vargin@team.amocrm.com",
+      "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+    },
+    "data": {
+      "request": {
+        "tasks": {
+          "add": [
+            {
+              "element_type": 1,
+              "element_id": 52513083,
+              "task_type": 179903,
+              "text": "dfsdrts5467hjgfhj",
+              "complete_till": "1459234498"
+            }
+          ]
+        }
+      }
+    },
+    "method": "POST"
+  }
+}

@@ -61,7 +61,21 @@
       "USER_LOGIN": "v.vargin@team.amocrm.com",
       "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
     },
-    "data": "{\"request\":{\"notes\":{\"update\":[{\"text\":\"Another text\",\"element_id\":52452792,\"element_type\":1,\"id\":81100512,\"last_modified\":\"1457600876\"}]}}}",
+    "data": {
+      "request": {
+        "notes": {
+          "update": [
+            {
+              "text": "Another text",
+              "element_id": 52452792,
+              "element_type": 1,
+              "id": 81100512,
+              "last_modified": "1457600876"
+            }
+          ]
+        }
+      }
+    },
     "method": "POST"
   }
 }

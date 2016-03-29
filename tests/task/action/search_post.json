@@ -1,0 +1,150 @@
+{
+  "bundle": {
+    "auth_fields": {
+      "login": "v.vargin@team.amocrm.com",
+      "api_key": "9292ec5cdb8d5d48bb307cd83c6a0d02",
+      "account": "aprokinabeta"
+    },
+    "request": {
+      "files": null,
+      "url": "https://aprokinabeta.amocrm.com/private/api/v2/json/tasks/list/",
+      "auth": null,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+      },
+      "params": {
+        "USER_LOGIN": "v.vargin@team.amocrm.com",
+        "element_id": "52513083",
+        "type": "contact",
+        "USER_HASH": "9292ec5cdb8d5d48bb307cd83c6a0d02"
+      },
+      "data": null,
+      "method": "GET"
+    },
+    "search_fields": {
+      "task_type": "179903",
+      "text": "dfsdrts5467hjgfhj",
+      "complete_till": "now",
+      "element_type": "1",
+      "element_id": "52513083",
+      "type": "lead"
+    },
+    "meta": {
+      "frontend": true
+    },
+    "response": {
+      "content": {
+        "response": {
+          "tasks": [
+            {
+              "id": "24196903",
+              "element_id": "52513083",
+              "element_type": "1",
+              "task_type": "CALL",
+              "date_create": 1457690107,
+              "created_user_id": "654094",
+              "last_modified": 1457690107,
+              "text": "\u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d \u043a\u043e\u043d\u0442\u0430\u043a\u0442",
+              "responsible_user_id": "654094",
+              "complete_till": 1457690107,
+              "status": "0",
+              "group_id": 35540,
+              "account_id": "9931843"
+            },
+            {
+              "id": "24392490",
+              "element_id": "52513083",
+              "element_type": "1",
+              "task_type": "179903",
+              "date_create": 1459184901,
+              "created_user_id": "261002",
+              "last_modified": 1459184901,
+              "text": "dfsdrts5467hjgfhj",
+              "responsible_user_id": "261002",
+              "complete_till": 1459179444,
+              "status": "0",
+              "group_id": 0,
+              "account_id": "9931843"
+            },
+            {
+              "id": "24392494",
+              "element_id": "52513083",
+              "element_type": "1",
+              "task_type": "179903",
+              "date_create": 1459184969,
+              "created_user_id": "261002",
+              "last_modified": 1459184969,
+              "text": "dfsdrts5467hjgfhj",
+              "responsible_user_id": "261002",
+              "complete_till": 1459179444,
+              "status": "0",
+              "group_id": 0,
+              "account_id": "9931843"
+            }
+          ]
+        }
+      },
+      "status_code": 200,
+      "headers": {
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked",
+        "set-cookie": "session_id=1l0614s48ej4ak2ndn1km6hrjd25ld1ehqaikhf13ohoh6cvouq0; path=/; domain=.amocrm.com, BITRIX_SM_LOGIN=v.vargin%40team.amocrm.com; expires=Wed, 03-Mar-2021 08:03:01 GMT; path=/; domain=.amocrm.com, BITRIX_SM_SALE_UID=0; expires=Fri, 24-Mar-2017 08:03:01 GMT; path=/; domain=.amocrm.com, user_lang=en; expires=Mon, 29-Mar-2021 08:03:01 GMT; path=/; domain=.amocrm.com",
+        "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "server": "nginx",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "date": "Tue, 29 Mar 2016 08:03:01 GMT",
+        "p3p": "policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"",
+        "content-type": "application/json; charset=\"utf-8\""
+      }
+    },
+    "zap": {
+      "live": false,
+      "link": "https://zapier.com/app/edit/8061985",
+      "name": "Find lead",
+      "user": {
+        "timezone": "UTC"
+      }
+    }
+  },
+  "result": [
+    {
+      "responsible_user_id": "261002",
+      "text": "dfsdrts5467hjgfhj",
+      "date_create": "Mon Mar 28 2016 17:09:29 GMT+0000 (UTC)",
+      "element_type": "1",
+      "last_modified": "Mon Mar 28 2016 17:09:29 GMT+0000 (UTC)",
+      "created_user_id": "261002",
+      "element_id": "52513083",
+      "group_id": 0,
+      "id": "24392494",
+      "custom_fields": {}
+    },
+    {
+      "responsible_user_id": "261002",
+      "text": "dfsdrts5467hjgfhj",
+      "date_create": "Mon Mar 28 2016 17:08:21 GMT+0000 (UTC)",
+      "element_type": "1",
+      "last_modified": "Mon Mar 28 2016 17:08:21 GMT+0000 (UTC)",
+      "created_user_id": "261002",
+      "element_id": "52513083",
+      "group_id": 0,
+      "id": "24392490",
+      "custom_fields": {}
+    },
+    {
+      "responsible_user_id": "654094",
+      "text": "\u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d \u043a\u043e\u043d\u0442\u0430\u043a\u0442",
+      "date_create": "Fri Mar 11 2016 09:55:07 GMT+0000 (UTC)",
+      "element_type": "1",
+      "last_modified": "Fri Mar 11 2016 09:55:07 GMT+0000 (UTC)",
+      "created_user_id": "654094",
+      "element_id": "52513083",
+      "group_id": 35540,
+      "id": "24196903",
+      "custom_fields": {}
+    }
+  ]
+}
